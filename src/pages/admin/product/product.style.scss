@@ -1,0 +1,40 @@
+@import "../../../assets/Styles/values.scss";
+.product-img {
+  position: relative;
+  padding: 3px;
+  border: 1px solid black;
+  width: 250px;
+  height: 250px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  svg {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+}
+.product-list-item {
+  padding: 8px;
+  display: flex;
+  & > div:nth-child(2) {
+    background-color: $pillSecondaryColor;
+    flex: 20;
+  }
+  & > div:nth-child(1) {
+    background-color: #f7f7f7;
+    flex: 2;
+    text-align: center;
+  }
+  a {
+    text-decoration: none;
+  }
+  img {
+    height: 100px;
+    width: 120px;
+  }
+  svg{
+    padding: 5px 3px;
+  }
+}

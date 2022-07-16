@@ -1,0 +1,32 @@
+[
+  {
+    "title": "بهداشت و حمام",
+    "iconUrl": "./assets/icons/hAndBath.png",
+    "id": 0
+  },
+  {
+    "title": "آشپزخانه",
+    "iconUrl": "./assets/icons/kitchen.png",
+    "id": 1
+  },
+  {
+    "title": "نایلکس",
+    "iconUrl": "./assets/icons/nailex.png",
+    "id": 2
+  },
+  {
+    "title": "سلولزی",
+    "iconUrl": "./assets/icons/selolezi.png",
+    "id": 3
+  },
+  {
+    "title": "یک‌‌ بار مصرف",
+    "iconUrl": "./assets/icons/yek-masraf.png",
+    "id": 4
+  },
+  {
+    "title": "مواد اولیه",
+    "iconUrl": "./assets/icons/avalie-material.png",
+    "id": 5
+  }
+]

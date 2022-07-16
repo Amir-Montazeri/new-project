@@ -1,0 +1,18 @@
+@import '../../Assets/Styles/values.scss';
+.primary-text{
+    border-radius: $borderRadius;
+    font-size: 15px;
+    // padding: 10px;
+    color: $blackColor;
+    
+}
+
+.primary-text::placeholder{
+    color: $pillTextGray;
+}
+.primary-text::-moz-placeholder{
+    color: $pillTextGray;
+}
+.primary-text::-webkit-input-placeholder{
+    color: $pillTextGray;
+}

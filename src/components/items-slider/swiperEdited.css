@@ -1,0 +1,65 @@
+:root {
+  --swiper-navigation-size: 30px;
+}
+
+.swiper {
+  width: 100%;
+}
+
+.swiper.make-space {
+  padding-right: 29px;
+}
+
+.swiper-without-radius {
+  border-radius: 0 !important;
+}
+
+.swiper-wrapper {
+  align-items: center;
+}
+
+.swiper-wrapper .swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  border-radius: 0 !important;
+}
+
+.swiper-slide:nth-child(2n-1) {
+  background: #c0c7cf;
+}
+
+.swiper-slide:nth-child(2n) {
+  background: #e4f5fc;
+}
+
+.transparentb-bg {
+  background: transparent !important;
+}
+
+.swiper-slide.slides-with-radius {
+  border-radius: 15px !important;
+}
+
+.mini-slider {
+  height: 240px !important;
+  width: 240px !important;
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  right: 5px;
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  left: 5px;
+}
+
+@media screen and (max-width: 780px) {
+  .swiper {
+    height: 200px !important;
+  }
+}
