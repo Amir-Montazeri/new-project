@@ -14,19 +14,19 @@ const Footer = () => {
     <div className="footer">
       <br />
       <Row className="footer-links hidden-sm hidden-xs">
-        <Col gl md>
+        <Col gl="true" md>
           همکاری با ما
         </Col>
-        <Col gl md>
+        <Col gl="true" md>
           قوانینن و مقررات
         </Col>
-        <Col gl md>
+        <Col gl="true" md>
           پشتیبانی
         </Col>
-        <Col gl md>
+        <Col gl="true" md>
           تماس با ما
         </Col>
-        <Col gl md>
+        <Col gl="true" md>
           نمایندگی
         </Col>
       </Row>
