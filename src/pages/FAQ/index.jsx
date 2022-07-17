@@ -1,16 +1,16 @@
 import { Box } from "@mui/material";
-import { Outlet } from "react-router-dom";
+import { FAQHeader, FAQItems } from "components";
 import { containerStyles, contentStyles } from "./profileStyles";
 
-function Profile() {
+function FAQ() {
   return (
     <Box sx={containerStyles}>
-      header
       <Box sx={contentStyles}>
-        <Outlet />
+        <FAQHeader />
+        <FAQItems />
       </Box>
     </Box>
   );
 }
 
-export default Profile;
+export default FAQ;

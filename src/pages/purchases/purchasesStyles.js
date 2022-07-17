@@ -1,12 +1,4 @@
-export const containerStyles = {
-    margin: "20px 0",
-    padding: "50px",
-    // minHeight: "60vh",
-    width: "1088px",
-    maxWidth: "95vw",
-    background: "#fff",
-  },
-  itemsContainerStyles = {
+export const itemsContainerStyles = {
     "@media screen and (max-width: 1100px)": {
       flexDirection: "column",
       alignItems: "center",

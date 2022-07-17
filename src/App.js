@@ -8,6 +8,9 @@ import {
   DownloadApp,
   Profile,
   Purchases,
+  Financial,
+  Support,
+  FAQ,
 } from "pages";
 import Login from "../src/pages/login/loginForm";
 import Register from "../src/pages/register/registerForm";
@@ -37,7 +40,10 @@ function App() {
         <Route path="/profile" element={<Profile />}>
           <Route path="me" element={<ProfileForm />} />
           <Route path="purchases" element={<Purchases />} />
+          <Route path="financial" element={<Financial />} />
+          <Route path="support" element={<Support />} />
         </Route>
+        <Route path="FAQ" element={<FAQ />} />
         {/* </Route> */}
       </Routes>
       <Footer />

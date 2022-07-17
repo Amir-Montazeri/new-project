@@ -192,7 +192,7 @@ export default class CreateProduct extends React.Component {
   componentDidMount() {
     fetch(`${setting.baseUrl}ProductCatagory/`, {
       method: "GET",
-      headers:{"Content-Type":"application/json"}
+      headers: { "Content-Type": "application/json" },
     })
       .then((res) => {
         return res.json();
@@ -205,7 +205,7 @@ export default class CreateProduct extends React.Component {
 
     fetch(`${setting.baseUrl}Promotion/`, {
       method: "GET",
-      headers:{"Content-Type":"application/json"}
+      headers: { "Content-Type": "application/json" },
     })
       .then((res) => {
         return res.json();
@@ -326,14 +326,14 @@ export default class CreateProduct extends React.Component {
                         <FontAwesomeIcon
                           icon={faClose}
                           className="exit-form-circle font-size-16"
-                          onClick={()=>{
+                          onClick={() => {
                             const images = this.state.images;
-                            images.splice(index,1);
+                            images.splice(index, 1);
                             this.setState({
-                              images
+                              images,
                             });
                           }}
-                         />
+                        />
                         <img src={item.file} />
                       </div>
                     </Col>
@@ -532,7 +532,6 @@ export default class CreateProduct extends React.Component {
                           product_id: productId,
                         };
 
-                        
                         fetch(`${setting.baseUrl}IntermediateTable/`, {
                           body: JSON.stringify(requestBody_),
                           method: "POST",
@@ -570,9 +569,9 @@ export default class CreateProduct extends React.Component {
                           });
                         });
                       }
-                      setTimeout(()=>{
+                      setTimeout(() => {
                         alert("عملیات موفقیت آمیز بود");
-                      },3000);
+                      }, 3000);
                     }
                   });
                 }}
@@ -582,7 +581,6 @@ export default class CreateProduct extends React.Component {
             </Col>
           </Row>
         </Container>
-        
       </Fragment>
     );
   }
