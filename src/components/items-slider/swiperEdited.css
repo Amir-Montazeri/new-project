@@ -43,6 +43,14 @@
   border-radius: 15px !important;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.userselect-none {
+  user-select: none;
+}
+
 .mini-slider {
   height: 240px !important;
   width: 240px !important;

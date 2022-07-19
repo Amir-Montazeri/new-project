@@ -1,31 +1,26 @@
-import { Box, Typography } from "@mui/material";
-import { SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
+import { Box, Grid, Typography } from "@mui/material";
 import { containerStyles, titleStyles } from "./itemsTypesStyles";
 import sampleItems from "./sampleItems.json";
-import Slider from "../items-slider/Slider";
-
-const config = {
-  swiperConfig: {
-    navigation: true,
-    modules: [Navigation],
-  },
-};
 
 const ItemsTypes = () => {
   const renderedSlides = (items) =>
     items.map((item) => (
-      <SwiperSlide key={item.id}>
+      <Grid
+        item
+        key={item.id}
+        sx={{
+          // height: "93px",
+          width: "110px",
+          cursor: "pointer",
+        }}
+      >
         <img
           src={item.iconUrl}
           alt={`${item.title} slide`}
-          width="70%"
-          style={{ background: `url(${item.iconUrl})`, zIndex: 5 }}
+          width="100%"
+          style={{ background: `url(${item.iconUrl})` }}
         />
-        <Typography variant="h6" component="p">
-          {item.title}
-        </Typography>
-      </SwiperSlide>
+      </Grid>
     ));
 
   return (
@@ -33,7 +28,24 @@ const ItemsTypes = () => {
       <Typography variant="h5" component="h2" sx={titleStyles}>
         گروه محصول خود را انتخاب کنید
       </Typography>
-      <Slider {...config}>{renderedSlides(sampleItems)}</Slider>
+      <Grid
+        container
+        flexWrap="nowrap"
+        sx={{
+          "@media screen and (max-width: 1010px)": { flexDirection: "column" },
+        }}
+      >
+        {sampleItems.map(({ items, id }) => (
+          <Grid
+            container
+            alignItems="center"
+            justifyContent="space-evenly"
+            key={id}
+          >
+            {renderedSlides(items)}
+          </Grid>
+        ))}
+      </Grid>
     </Box>
   );
 };

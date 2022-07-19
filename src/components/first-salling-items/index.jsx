@@ -30,7 +30,7 @@ const FirstSallingItems = () => {
         <SwiperSlide
           key={item.id}
           style={{ background: "#fff", height: "240px", width: "240px" }}
-          className="slides-with-radius mini-slider"
+          className="slides-with-radius mini-slider cursor-pointer userselect-none"
         >
           <ItemDramatic
             bannerUrl={item.iconUrl}

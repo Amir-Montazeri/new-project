@@ -24,7 +24,7 @@ const SuggestedItems = () => {
     items.map((item) => (
       <SwiperSlide
         key={item.id}
-        className="edited-slider slides-with-radius"
+        className="edited-slider slides-with-radius cursor-pointer userselect-none"
         style={{ borderRadius: "9px" }}
       >
         <ItemDramatic
@@ -54,7 +54,7 @@ const SuggestedItems = () => {
             slidesPerViewInXl={5.4}
           >
             {renderedSlides(sampleItems)}
-            <SwiperSlide className="transparentb-bg">
+            <SwiperSlide className="transparentb-bg cursor-pointer userselect-none">
               <img
                 src="./assets/main-backgrounds/offer-banner.jpg"
                 alt="offer-banner"

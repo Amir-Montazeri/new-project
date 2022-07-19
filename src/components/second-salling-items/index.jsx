@@ -24,7 +24,7 @@ const SecondSallingItems = () => {
         <SwiperSlide
           key={item.id}
           style={{ background: "#fff" }}
-          className="slides-with-radius mini-slider"
+          className="slides-with-radius mini-slider cursor-pointer userselect-none"
         >
           <ItemDramatic
             bannerUrl={item.iconUrl}
