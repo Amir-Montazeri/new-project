@@ -8,25 +8,36 @@ function Ads() {
   return isOpen ? (
     <Box
       sx={{
-        cursor: "pointer",
+        position: "relative",
         height: "100px",
-        display: "flex",
-        alignItems: "center",
+        cursor: "pointer",
         "*": { zIndex: 20 },
       }}
     >
       <Box
         sx={{
           position: "absolute",
-          top: 50,
-          left: 0,
+          top: 0,
+          right: 0,
           width: "100vw",
           height: "100px",
           bgcolor: "red",
+          overflow: "hidden",
         }}
-      ></Box>
+      >
+        <img
+          src="./assets/main-backgrounds/aboutus-banner.jpg"
+          width="100%"
+          alt="ads banner"
+        />
+      </Box>
       <Box
-        sx={{ position: "absolute", top: 0, right: 0 }}
+        sx={{
+          position: "absolute",
+          top: "50%",
+          right: "10px",
+          transform: "translateY(-50%)",
+        }}
         onClick={() => setIsOpen(false)}
       >
         <ImCross />
