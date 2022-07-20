@@ -1,3 +1,4 @@
+export { default as Ads } from "./ads";
 export { default as Navbar } from "./navbar";
 export { default as PurchaseItem } from "./purchase-item";
 export { default as FinancialHeader } from "./financial-header";

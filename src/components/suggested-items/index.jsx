@@ -31,7 +31,6 @@ const SuggestedItems = () => {
           title={item.title}
           desc={item.desc}
           bannerUrl={item.iconUrl}
-          rate={item.star}
           minPrice={item.minPrice}
           maxPrice={item.maxPrice}
         />

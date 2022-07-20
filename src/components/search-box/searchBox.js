@@ -45,12 +45,13 @@ export const containerStyles = {
   selectContainerStyles = {
     width: "27%",
     display: "flex",
-    flexWrap: "no-wrap",
+    flexWrap: "nowrap !important",
     alignItems: "center",
     background: "#F1F8FC",
     border: "none !important",
     flexDirection: "row-reverse",
     borderRadius: "0 !important",
+    overflowX: "hidden",
     "*": {
       border: "none !important",
       outline: "none !important",

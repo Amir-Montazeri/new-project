@@ -22,11 +22,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "components/footer/footer.component";
 import Menu from "components/menu/menu.component";
 import ProfileForm from "components/profile-form";
+import { GlobalStyles } from "@mui/material";
+import { Ads } from "components";
 
 function App() {
   return (
     <>
+      <Ads />
       <Menu />
+      {/* <GlobalStyles styles={{ "*": { fontFamily: "sepahbod !important" } }} /> */}
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/about" element={<AboutUs />} />

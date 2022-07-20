@@ -18,7 +18,6 @@ const FactorContainer = ({
   code,
   price,
 }) => {
-  console.log(day);
   return (
     <Box>
       <Grid

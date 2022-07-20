@@ -16,9 +16,11 @@ const ItemDramatic = ({ bannerUrl, rate, title, desc, minPrice, maxPrice }) => (
     <Grid item>
       <img src={bannerUrl} alt={`${title} banner`} width="38%" />
     </Grid>
-    <Grid item>
-      <RenderedStars currentStars={rate} />
-    </Grid>
+    {rate ? (
+      <Grid item>
+        <RenderedStars currentStars={rate} />
+      </Grid>
+    ) : null}
     <Grid item>
       <Typography variant="h6" component="h4">
         {title}

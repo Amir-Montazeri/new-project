@@ -9,9 +9,14 @@ const ItemsTypes = () => {
         item
         key={item.id}
         sx={{
-          // height: "93px",
           width: "110px",
           cursor: "pointer",
+          "@media screen and (max-width: 610px)": {
+            width: "90px",
+          },
+          "@media screen and (max-width: 490px)": {
+            width: "70px",
+          },
         }}
       >
         <img

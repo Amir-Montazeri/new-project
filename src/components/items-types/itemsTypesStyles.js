@@ -4,6 +4,7 @@ export const containerStyles = {
   },
   titleStyles = {
     marginBottom: "6px",
+    textAlign: "center",
     "@media screen and (max-width: 545px)": {
       fontSize: "1.3rem",
     },

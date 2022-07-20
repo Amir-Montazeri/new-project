@@ -30,7 +30,6 @@ const SecondSallingItems = () => {
             bannerUrl={item.iconUrl}
             title={item.title}
             desc={item.desc}
-            rate={item.star}
             minPrice={item.minPrice || null}
             maxPrice={item.maxPrice || null}
           />
