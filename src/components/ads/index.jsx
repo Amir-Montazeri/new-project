@@ -39,7 +39,7 @@ function Ads() {
         }}
         onClick={() => setIsOpen(false)}
       >
-        <ImCross />
+        <ImCross color="#fff" style={{ filter: "drop-shadow(0 0 9px #000)" }} />
       </Box>
     </Box>
   ) : null;

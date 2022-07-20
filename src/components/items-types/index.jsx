@@ -35,10 +35,10 @@ const ItemsTypes = () => {
       </Typography>
       <Grid
         container
-        flexWrap="nowrap"
-        sx={{
-          "@media screen and (max-width: 1010px)": { flexDirection: "column" },
-        }}
+        flexDirection="column"
+        // sx={{
+        //   "@media screen and (max-width: 1010px)": { flexDirection: "column" },
+        // }}
       >
         {sampleItems.map(({ items, id }) => (
           <Grid

@@ -13,8 +13,7 @@ import { Grid, Typography } from "@mui/material";
 import { titleStyles } from "./footerStyles";
 const Footer = () => {
   return (
-    <div className="footer">
-      <br />
+    <div style={{ padding: "15px 0" }} className="footer">
       <Grid
         container
         justifyContent="space-evenly"
@@ -42,7 +41,14 @@ const Footer = () => {
         </Grid>
       </Grid>
       <Row className="footer-images mt-2">
-        <Col className="mt-3" lg={4} md={8} sm={12} xs={12}>
+        <Col
+          className="mt-3"
+          lg={4}
+          md={8}
+          sm={12}
+          xs={12}
+          style={{ flexDirection: "row-reverse" }}
+        >
           <div>
             <img src={Etemad} alt="etemad icon" />
           </div>
@@ -54,20 +60,30 @@ const Footer = () => {
           </div>
         </Col>
         <Col className="mt-3" lg={4} md={4} sm={5} xs={5}>
-          <FontAwesomeIcon
-            icon={faHeadphones}
-            className="hidden-sm hidden-xs"
-          />
           <div>
-            <p className="font-size-14 xs-font-size-16 sm-font-size-16">
+            <p
+              className="font-size-14 xs-font-size-16 sm-font-size-16"
+              style={{ direction: "rtl !important" }}
+            >
               34221 - 021
             </p>
             <p className="font-size-10 xs-font-size-11 sm-font-size-11">
               پشتیبانی 24 ساعته
             </p>
           </div>
+          <FontAwesomeIcon
+            icon={faHeadphones}
+            className="hidden-sm hidden-xs"
+          />
         </Col>
-        <Col className="mt-3" lg={4} md={12} sm={7} xs={7}>
+        <Col
+          className="mt-3"
+          lg={4}
+          md={12}
+          sm={7}
+          xs={7}
+          style={{ flexDirection: "row-reverse" }}
+        >
           <div>
             <img src={telegram} />
           </div>
@@ -82,7 +98,6 @@ const Footer = () => {
           </div>
         </Col>
       </Row>
-      <br />
     </div>
   );
 };
