@@ -9,57 +9,48 @@ import telegram from "../../assets/Images/telegram.png";
 import twitter from "../../assets/Images/twitter.png";
 import instagram from "../../assets/Images/instagram.png";
 import facebook from "../../assets/Images/facebook.png";
+import { Grid, Typography } from "@mui/material";
+import { titleStyles } from "./footerStyles";
 const Footer = () => {
   return (
     <div className="footer">
       <br />
-      <Row className="footer-links hidden-sm hidden-xs">
-        <Col gl="true" md>
+      <Grid
+        container
+        justifyContent="space-evenly"
+        sx={{
+          padding: "0 10vw",
+          "@media screen and (max-width: 768px)": {
+            padding: "0",
+          },
+        }}
+      >
+        <Grid item sx={{ ...titleStyles, width: "19%" }}>
           همکاری با ما
-        </Col>
-        <Col gl="true" md>
+        </Grid>
+        <Grid item sx={{ ...titleStyles, width: "24%" }}>
           قوانینن و مقررات
-        </Col>
-        <Col gl="true" md>
+        </Grid>
+        <Grid item sx={{ ...titleStyles, width: "19%" }}>
           پشتیبانی
-        </Col>
-        <Col gl="true" md>
+        </Grid>
+        <Grid item sx={{ ...titleStyles, width: "19%" }}>
           تماس با ما
-        </Col>
-        <Col gl="true" md>
+        </Grid>
+        <Grid item sx={{ ...titleStyles, width: "19%" }}>
           نمایندگی
-        </Col>
-      </Row>
-      <Row className="footer-links d-lg-none d-md-none visible-sm visible-xs">
-        <Col sm xs>
-          همکاری با ما
-        </Col>
-        <Col sm xs>
-          قوانینن و مقررات
-        </Col>
-        <Col sm xs>
-          پشتیبانی
-        </Col>
-      </Row>
-      <Row className="footer-links d-lg-none d-md-none visible-sm visible-xs">
-        <Col sm xs>
-          تماس با ما
-        </Col>
-        <Col sm xs>
-          نمایندگی
-        </Col>
-      </Row>
-
+        </Grid>
+      </Grid>
       <Row className="footer-images mt-2">
         <Col className="mt-3" lg={4} md={8} sm={12} xs={12}>
           <div>
-            <img src={Etemad} />
+            <img src={Etemad} alt="etemad icon" />
           </div>
           <div>
-            <img src={KasboKar} />
+            <img src={KasboKar} alt="kasboKar icon" />
           </div>
           <div>
-            <img src={Saman} />
+            <img src={Saman} alt="saman icon" />
           </div>
         </Col>
         <Col className="mt-3" lg={4} md={4} sm={5} xs={5}>
@@ -97,3 +88,31 @@ const Footer = () => {
 };
 
 export default Footer;
+
+// <Grid
+//   container
+//   justifyContent="space-evenly"
+//   sx={{
+//     "> *": {
+//       color: "#fff",
+//       borderRight: "1px solid #fff",
+//       textAlign: "center",
+//     },
+//   }}
+// >
+//   <Grid item component="p">
+//     همکاری با ما
+//   </Grid>
+//   <Grid item component="p">
+//     قوانینن و مقررات
+//   </Grid>
+//   <Grid item component="p">
+//     پشتیبانی
+//   </Grid>
+//   <Grid item component="p">
+//     تماس با ما
+//   </Grid>
+//   <Grid item component="p">
+//     نمایندگی
+//   </Grid>
+// </Grid>;

@@ -21,7 +21,6 @@ function Ads() {
           right: 0,
           width: "100vw",
           height: "100px",
-          bgcolor: "red",
           overflow: "hidden",
         }}
       >
