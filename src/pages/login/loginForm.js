@@ -1,47 +1,46 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import axios from "axios";
 import { connect } from "react-redux";
 import { setIsLoading, setUser } from "../../store/actions";
 import Image from "../../components/image/image";
 import Link from "../../components/Link/mLink";
 import Logo from "../../logo.svg";
 import { Navigate } from "react-router-dom";
+import { setItem } from "lcoalStorage";
 
 function Login({ isLoading, setIsLoading, setUser, user }) {
-  const [info, setInfo] = useState({ tel: "", pass: "" });
+  const [info, setInfo] = useState({ username: "", pass: "" });
   const [submited, setSubmited] = useState(false);
 
   async function submitHandler(e) {
     e.preventDefault();
     setIsLoading(true);
-    await fetch("http://127.0.0.1:8081/User/", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-      body: JSON.stringify({
-        email: info.email,
+    axios
+      .post("http://193.141.64.166:8088/auth/login/", {
+        username: info.username,
         password: info.pass,
-      }),
-    })
+      })
       .then((res) => {
-        console.log(res);
         setIsLoading(false);
+        console.log("suc! ", res);
+        if (res.statusText === "OK") {
+          setItem("access", res.data.access);
+          setItem("refresh", res.data.refresh);
+          setUser(res.data);
+        }
       })
       .catch((err) => {
-        console.log(err);
+        setIsLoading(false);
+        let error = JSON.parse(err.request.responseText);
+        console.log("err! ", err);
+        // setError(error);
       });
   }
   function numhandler(e) {
     let numbers = /^[0-9]+$/;
     if (e.target.value.match(numbers)) {
-      setInfo({ ...info, tel: e.target.value.trim() });
-    } else {
-      if (info.tel.length === 1) {
-        setInfo({ ...info, tel: "" });
-      } else {
-        setInfo({ ...info, tel: info.tel });
-      }
+      setInfo({ ...info, username: e.target.value.trim() });
     }
   }
 
@@ -49,7 +48,7 @@ function Login({ isLoading, setIsLoading, setUser, user }) {
     setInfo({ ...info, pass: e.target.value.toLowerCase().trim() });
   }
 
-  return user?.user_id ? (
+  return user?.access ? (
     <Navigate to="/" />
   ) : (
     <div className="min-vh-100 bg-primary d-flex justify-content-center align-items-center">
@@ -69,7 +68,7 @@ function Login({ isLoading, setIsLoading, setUser, user }) {
                     className="my-4 radius-4 p-3 pe-5 border border-dark text-right"
                     type="text"
                     placeholder="شماره موبایل"
-                    value={info.tel}
+                    value={info.username}
                     onChange={(e) => numhandler(e)}
                     required
                   />

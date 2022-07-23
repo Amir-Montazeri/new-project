@@ -1,20 +1,21 @@
 import nameIcon from "assets/icons-dir/name.svg";
 import profileIcon from "assets/icons-dir/profile.svg";
-import phoneNumberIcon from "assets/icons-dir/phoneNumber.svg";
 import landlineIcon from "assets/icons-dir/landline.svg";
-import emailIcon from "assets/icons-dir/email.svg";
 import addressIcon from "assets/icons-dir/address.svg";
+import preCodeIcon from "assets/icons-dir/pre-code.svg";
 
 export const textFields = [
   {
     items: [
       {
-        name: "full_name",
+        name: "fullname",
+        type: "text",
         placeholder: "نام و نام خانوادگی",
         iconOnRight: nameIcon,
       },
       {
-        name: "profile_pic",
+        name: "profile_image",
+        type: "file",
         placeholder: "تصویر پروفایل",
         iconOnRight: profileIcon,
       },
@@ -24,12 +25,13 @@ export const textFields = [
   {
     items: [
       {
-        name: "phone_number",
-        placeholder: "شماره همراه",
-        iconOnRight: phoneNumberIcon,
+        name: "phone_pre_code",
+        type: "number",
+        placeholder: "پیش شماره",
+        iconOnRight: preCodeIcon,
       },
       {
-        name: "landline",
+        name: "phone_number",
         placeholder: "تلفن ثابت",
         iconOnRight: landlineIcon,
       },
@@ -39,12 +41,7 @@ export const textFields = [
   {
     items: [
       {
-        name: "email",
-        placeholder: "ایمیل",
-        iconOnRight: emailIcon,
-      },
-      {
-        name: "address",
+        name: "address_text",
         placeholder: "آدرس",
         iconOnRight: addressIcon,
       },

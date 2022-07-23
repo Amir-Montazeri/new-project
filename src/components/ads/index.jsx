@@ -16,17 +16,14 @@ function Ads() {
     >
       <Box
         sx={{
-          position: "absolute",
-          top: 0,
-          right: 0,
           width: "100vw",
           height: "100px",
           overflow: "hidden",
         }}
       >
         <img
-          src="./assets/main-backgrounds/aboutus-banner.jpg"
-          width="100%"
+          src="https://file.soft98.ir/afrak6.az"
+          className="ad-banner"
           alt="ads banner"
         />
       </Box>

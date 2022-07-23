@@ -13,7 +13,7 @@ export const calSlidesPerView = (
   slidesInSm
 ) => {
   let result;
-  if (innerWidth > 1100) {
+  if (innerWidth > 1200) {
     result = slidesInXl || slidesPerView.xl;
   } else if (innerWidth > 800) {
     result = slidesIn2lg || slidesInXl;

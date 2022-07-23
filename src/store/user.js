@@ -1,11 +1,16 @@
-import { USER } from './actions/actionTypes';
+import { USER, LOG_OUT } from "./actions/actionTypes";
 
-export default (state = {}, action) => {
-    const { type, payload } = action;
-    switch (type) {
-        case USER:
-            return payload;
-        default:
-            return state;
-    }
+const user = (state = null, action) => {
+  const { type, payload } = action;
+
+  switch (type) {
+    case USER:
+      return payload;
+    case LOG_OUT:
+      return null;
+    default:
+      return state;
+  }
 };
+
+export default user;

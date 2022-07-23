@@ -30,7 +30,9 @@ function App() {
     <>
       <Ads />
       <Menu />
-      {/* <GlobalStyles styles={{ "*": { fontFamily: "sepahbod !important" } }} /> */}
+      <GlobalStyles
+        styles={{ a: { color: "#000", ":hover": { color: "#111" } } }}
+      />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/about" element={<AboutUs />} />
@@ -47,7 +49,7 @@ function App() {
           <Route path="financial" element={<Financial />} />
           <Route path="support" element={<Support />} />
         </Route>
-        <Route path="FAQ" element={<FAQ />} />
+        <Route path="/FAQ" element={<FAQ />} />
         {/* </Route> */}
       </Routes>
       <Footer />

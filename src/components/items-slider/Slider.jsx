@@ -64,7 +64,7 @@ const Slider = ({
           slidesPerViewIn2lg || null,
           slidesPerViewInLg || null,
           slidesPerViewInSm || null
-        ) || 4
+        ) || 6
       }
       className={
         !sliderWithRadius
