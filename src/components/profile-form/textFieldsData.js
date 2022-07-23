@@ -14,10 +14,10 @@ export const textFields = [
         iconOnRight: nameIcon,
       },
       {
-        name: "profile_image",
-        type: "file",
-        placeholder: "تصویر پروفایل",
-        iconOnRight: profileIcon,
+        name: "phone_pre_code",
+        type: "number",
+        placeholder: "پیش شماره",
+        iconOnRight: preCodeIcon,
       },
     ],
     id: 0,
@@ -25,27 +25,23 @@ export const textFields = [
   {
     items: [
       {
-        name: "phone_pre_code",
-        type: "number",
-        placeholder: "پیش شماره",
-        iconOnRight: preCodeIcon,
-      },
-      {
         name: "phone_number",
         placeholder: "تلفن ثابت",
         iconOnRight: landlineIcon,
       },
-    ],
-    id: 1,
-  },
-  {
-    items: [
       {
         name: "address_text",
         placeholder: "آدرس",
         iconOnRight: addressIcon,
       },
     ],
-    id: 2,
+    id: 1,
   },
 ];
+
+// {
+//   name: "profile_image",
+//   type: "file",
+//   placeholder: "تصویر پروفایل",
+//   iconOnRight: profileIcon,
+// },

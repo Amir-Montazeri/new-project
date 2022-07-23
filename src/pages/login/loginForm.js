@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import { setIsLoading, setUser } from "../../store/actions";
 import Image from "../../components/image/image";
 import Link from "../../components/Link/mLink";
-import Logo from "../../logo.svg";
-import { Navigate } from "react-router-dom";
+import Logo from "assets/Images/logo.svg";
+import { Navigate, Link as RRDLink } from "react-router-dom";
 import { setItem } from "lcoalStorage";
 
 function Login({ isLoading, setIsLoading, setUser, user }) {
@@ -17,13 +17,17 @@ function Login({ isLoading, setIsLoading, setUser, user }) {
     e.preventDefault();
     setIsLoading(true);
     axios
-      .post("http://193.141.64.166:8088/auth/login/", {
+      .post("http://193.141.64.166/auth/login/", {
+        Headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
         username: info.username,
         password: info.pass,
       })
       .then((res) => {
         setIsLoading(false);
-        console.log("suc! ", res);
+        console.log("login suc! ", res);
+        console.log("login suc! ", res.data);
         if (res.statusText === "OK") {
           setItem("access", res.data.access);
           setItem("refresh", res.data.refresh);
@@ -49,20 +53,20 @@ function Login({ isLoading, setIsLoading, setUser, user }) {
   }
 
   return user?.access ? (
-    <Navigate to="/" />
+    <Navigate to={user["is_ok"] ? "/" : "/profile/me"} />
   ) : (
     <div className="min-vh-100 bg-primary d-flex justify-content-center align-items-center">
       <Container>
         <Row>
           <Col xs={10} md={8} lg={5} className="bg-white mx-auto rounded">
             <div className="d-flex justify-content-center">
-              <Image height="100px" width="100px" src={Logo} />
+              <Image height="80px" width="80px" src={Logo} />
             </div>
 
             <div className="mx-5">
               <Form onSubmit={(e) => submitHandler(e)}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <h3>ورود</h3>
+                  <h3 style={{ textAlign: "center" }}>ورود</h3>
                   <Form.Control
                     size="lg"
                     className="my-4 radius-4 p-3 pe-5 border border-dark text-right"
@@ -92,6 +96,18 @@ function Login({ isLoading, setIsLoading, setUser, user }) {
                   >
                     ورود
                   </Button>
+                </Col>
+                <Col xs={10} md={8} lg={5} className="mx-auto mt-4">
+                  <RRDLink to="/register">
+                    <Button
+                      variant="primary"
+                      type="submit"
+                      size="lg"
+                      className="rounded-pill w-100 text-light"
+                    >
+                      ثبت‌نام
+                    </Button>
+                  </RRDLink>
                 </Col>
               </Form>
             </div>

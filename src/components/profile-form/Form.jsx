@@ -5,6 +5,7 @@ import {
   Grid,
   Radio,
   RadioGroup,
+  Typography,
 } from "@mui/material";
 import RenderedTextFields from "./RenderedTextFields";
 import { textFields } from "./textFieldsData";
@@ -22,7 +23,7 @@ const selectItems = [
   },
 ];
 
-function Form({ register, setType, onProfileChanged }) {
+function Form({ register, setType, onProfileChanged, errs }) {
   const [selectedValue, setSelectedValue] = useState(selectItems[0].value); //user_setType
   const { innerWidth } = useWindowSize(),
     isXl = innerWidth >= 865;
@@ -32,6 +33,7 @@ function Form({ register, setType, onProfileChanged }) {
       return (
         <RenderedTextFields
           key={id}
+          errs={errs}
           textFieldItems={items}
           register={register}
           onProfileChanged={onProfileChanged}
@@ -76,6 +78,18 @@ function Form({ register, setType, onProfileChanged }) {
         >
           {renderedItems(selectItems)}
         </RadioGroup>
+        {errs &&
+          Object.values(errs).map((err) => (
+            <>
+              <Typography
+                sx={{ direction: "rtl", color: "red", lineHeight: "2" }}
+                variant="body2"
+                component="p"
+              >
+                {err}
+              </Typography>
+            </>
+          ))}
       </Grid>
     </Grid>
   );

@@ -6,7 +6,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { getBase64 } from "utils/FileHelper";
 
-const RenderedTextFields = ({ textFieldItems, register, onProfileChanged }) => {
+const RenderedTextFields = ({
+  textFieldItems,
+  register,
+  onProfileChanged,
+  errs,
+}) => {
   const [profileImg, setProfileImg] = useState();
   const { innerWidth } = useWindowSize(),
     isXl = innerWidth >= 865;

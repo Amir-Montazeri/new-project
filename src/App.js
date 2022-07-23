@@ -24,8 +24,20 @@ import Menu from "components/menu/menu.component";
 import ProfileForm from "components/profile-form";
 import { GlobalStyles } from "@mui/material";
 import { Ads } from "components";
+import { connect } from "react-redux";
+import { useEffect } from "react";
+import { setIsLoading } from "store/actions";
 
+// function App({ user, setIsLoading, isLoading }) {
 function App() {
+  // useEffect(() => {
+  //   setIsLoading(true);
+  //   const timerID = setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 10000);
+  //   clearTimeout(timerID);
+  // }, []);
+
   return (
     <>
       <Ads />
@@ -57,4 +69,9 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  user: state.user,
+  isLoading: state.isLoading,
+});
+
+export default connect(mapStateToProps, { setIsLoading })(App);

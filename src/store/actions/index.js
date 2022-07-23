@@ -1,5 +1,5 @@
 import { deleteItem } from "lcoalStorage";
-import { IS_LOADING, LOG_OUT, USER } from "./actionTypes";
+import { IS_LOADING, LOG_OUT, SET_USER_OK, USER } from "./actionTypes";
 
 export const setIsLoading = (payload) => ({
   type: IS_LOADING,
@@ -9,6 +9,10 @@ export const setIsLoading = (payload) => ({
 export const setUser = (payload) => ({
   type: USER,
   payload,
+});
+
+export const setUserOk = () => ({
+  type: SET_USER_OK,
 });
 
 export const logOut = () => {

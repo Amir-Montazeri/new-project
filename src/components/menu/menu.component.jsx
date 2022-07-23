@@ -13,49 +13,57 @@ import logo from "../../assets/Images/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { logOut } from "store/actions";
+import { NavBar } from "components";
+import { useState } from "react";
 
 const Menu = ({ user, logOut }) => {
   const navigate = useNavigate();
-  console.log("user: ", user);
+  const [navIsActive, setNavIsActive] = useState(false);
 
   return (
-    <nav>
-      <div className="header-container">
-        <div>
-          <span className="icon icon-bar pointer">
-            <FontAwesomeIcon icon={faBars} />
-          </span>
-          <img className="logo pointer" src={logo} />
-        </div>
-        <div></div>
-        <div>
-          <span className="icon pointer icon-search-larg-window">
-            <FontAwesomeIcon icon={faSearch} />
-          </span>
+    <div style={{ position: "relative" }}>
+      <nav>
+        <div className="header-container">
           <div>
-            <span className="pointer two-icon">
-              <FontAwesomeIcon icon={faShop} />
-              <FontAwesomeIcon icon={faCaretDown} />
-            </span>
             <span
-              className="pointer icon"
-              onClick={() => (user ? logOut() : navigate("/register"))}
+              className="icon icon-bar pointer"
+              onClick={() => setNavIsActive((prevState) => !prevState)}
             >
-              <FontAwesomeIcon icon={user ? faSignOut : faSignIn} />
+              <FontAwesomeIcon icon={faBars} />
             </span>
+            <img className="logo pointer" src={logo} />
           </div>
-          <Link to="/">
-            <span className="icon">
-              <FontAwesomeIcon icon={faHome} />
+          <div></div>
+          <div>
+            <span className="icon pointer icon-search-larg-window">
+              <FontAwesomeIcon icon={faSearch} />
             </span>
-          </Link>
+            <div>
+              <span className="pointer two-icon">
+                <FontAwesomeIcon icon={faShop} />
+                <FontAwesomeIcon icon={faCaretDown} />
+              </span>
+              <span
+                className="pointer icon"
+                onClick={() => (user ? logOut() : navigate("/login"))}
+              >
+                <FontAwesomeIcon icon={user ? faSignOut : faSignIn} />
+              </span>
+            </div>
+            <Link to="/">
+              <span className="icon">
+                <FontAwesomeIcon icon={faHome} />
+              </span>
+            </Link>
+          </div>
         </div>
-      </div>
-      <div className="header-search-container">
-        <FontAwesomeIcon icon={faSearch} />
-        <input type="text" className="search-input" />
-      </div>
-    </nav>
+        <div className="header-search-container">
+          <FontAwesomeIcon icon={faSearch} />
+          <input type="text" className="search-input" />
+        </div>
+      </nav>
+      <NavBar isActive={navIsActive} />
+    </div>
   );
 };
 

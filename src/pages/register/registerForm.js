@@ -27,7 +27,7 @@ function Register({ isLoading, user, setIsLoading }) {
     if (info.pass === info.confirmedPass) {
       setIsLoading(true);
       axios
-        .post("http://193.141.64.166:8088/auth/register/", {
+        .post("http://193.141.64.166/auth/register/", {
           username: info.username,
           password: info.pass,
           password2: info.confirmedPass,
@@ -89,7 +89,7 @@ function Register({ isLoading, user, setIsLoading }) {
         <Row>
           <Col xs={10} md={8} lg={5} className="bg-white mx-auto rounded">
             <div className="d-flex justify-content-center">
-              <Image height="100px" width="80px" src={Logo} />
+              <Image height="80px" width="80px" src={Logo} />
             </div>
 
             <div className="mx-5">
