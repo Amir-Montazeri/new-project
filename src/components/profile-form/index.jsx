@@ -19,7 +19,7 @@ const ProfileForm = ({ setUserOk, user }) => {
     console.log("resu: ", result);
     axios
       .post(
-        "http://193.141.64.166/Profile/",
+        "http://192.168.1.171:8088/Profile/",
         {
           ...result,
         },

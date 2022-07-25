@@ -1,3 +1,6 @@
+import "assets/Font/bahij/stylesheet.css";
+import "assets/Font/sepahbod/stylesheet.css";
+import "./App.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";

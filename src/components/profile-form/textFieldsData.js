@@ -14,29 +14,29 @@ export const textFields = [
         iconOnRight: nameIcon,
       },
       {
-        name: "phone_pre_code",
-        type: "number",
-        placeholder: "پیش شماره",
-        iconOnRight: preCodeIcon,
-      },
-    ],
-    id: 0,
-  },
-  {
-    items: [
-      {
-        name: "phone_number",
-        placeholder: "تلفن ثابت",
-        iconOnRight: landlineIcon,
-      },
-      {
         name: "address_text",
         placeholder: "آدرس",
         iconOnRight: addressIcon,
       },
     ],
-    id: 1,
+    id: 0,
   },
+  // {
+  //   items: [
+  //     {
+  //       name: "phone_number",
+  //       placeholder: "تلفن ثابت",
+  //       iconOnRight: landlineIcon,
+  //     },
+  //     {
+  //       name: "phone_pre_code",
+  //       type: "number",
+  //       placeholder: "پیش شماره",
+  //       iconOnRight: preCodeIcon,
+  //     },
+  //   ],
+  //   id: 1,
+  // },
 ];
 
 // {

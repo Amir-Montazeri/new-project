@@ -3,6 +3,7 @@ export const containerStyles = {
     direction: "rtl",
   },
   titleStyles = {
+    padding: "25px 0",
     marginBottom: "6px",
     textAlign: "center",
     "@media screen and (max-width: 545px)": {

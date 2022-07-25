@@ -6,7 +6,7 @@ import {
 } from "./itemDramaticStyles";
 import RenderedStars from "./RenderedStars";
 
-const ItemDramatic = ({ bannerUrl, rate, title, desc, minPrice, maxPrice }) => (
+const ItemDramatic = ({ bannerUrl, rate, title, desc, minPrice }) => (
   <Grid
     container
     flexDirection="column"
@@ -31,17 +31,13 @@ const ItemDramatic = ({ bannerUrl, rate, title, desc, minPrice, maxPrice }) => (
         {desc}
       </Typography>
     </Grid>
-    {minPrice && maxPrice ? (
+    {minPrice ? (
       <Grid item>
         <Typography variant="body2" component="p" sx={priceStyles}>
           {minPrice}{" "}
           <Typography variant="body2" component="span" sx={redTextStyle}>
             تومان
           </Typography>{" "}
-          - {maxPrice}{" "}
-          <Typography variant="body2" component="span" sx={redTextStyle}>
-            تومان
-          </Typography>
         </Typography>
       </Grid>
     ) : null}

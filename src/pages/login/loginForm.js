@@ -17,7 +17,7 @@ function Login({ isLoading, setIsLoading, setUser, user }) {
     e.preventDefault();
     setIsLoading(true);
     axios
-      .post("http://193.141.64.166/auth/login/", {
+      .post("http://192.168.1.171:8088/auth/login/", {
         Headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },

@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "Bahij";
+  src: url("Bahij.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bahijroya-font {
+  font-family: Bahij !important;
+}

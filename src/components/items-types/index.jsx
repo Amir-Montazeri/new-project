@@ -9,7 +9,8 @@ const ItemsTypes = () => {
         item
         key={item.id}
         sx={{
-          width: "110px",
+          marginTop: "18px",
+          width: "130px",
           cursor: "pointer",
           "@media screen and (max-width: 610px)": {
             width: "90px",
@@ -30,7 +31,12 @@ const ItemsTypes = () => {
 
   return (
     <Box sx={containerStyles}>
-      <Typography variant="h5" component="h2" sx={titleStyles}>
+      <Typography
+        variant="h5"
+        component="h2"
+        sx={titleStyles}
+        className="sepahbod-font"
+      >
         گروه محصول خود را انتخاب کنید
       </Typography>
       <Grid

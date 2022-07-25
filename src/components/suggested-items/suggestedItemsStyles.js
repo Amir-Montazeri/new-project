@@ -5,7 +5,7 @@ export const containerStyles = {
     },
   },
   titleStyles = {
-    padding: "15px 0",
+    padding: "25px 0",
     textAlign: "center",
   },
   offersContainer = {

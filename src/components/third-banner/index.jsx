@@ -4,7 +4,7 @@ import { containerStyles, itemsStyles } from "./secondBannerStyles";
 const ThirdBanner = () => {
   return (
     <Grid container flexWrap="nowrap" sx={containerStyles}>
-      <Grid item sx={itemsStyles}>
+      <Grid item sx={{ ...itemsStyles, marginRight: "5px" }}>
         <img
           width="100%"
           src="./assets/main-backgrounds/second-banner-left.jpg"

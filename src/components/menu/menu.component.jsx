@@ -23,15 +23,18 @@ const Menu = ({ user, logOut }) => {
   return (
     <div style={{ position: "relative" }}>
       <nav>
-        <div className="header-container">
+        <div
+          className="header-container"
+          style={{ display: "flex", flexDirection: "row-reverse" }}
+        >
           <div>
+            <img className="logo pointer" src={logo} />
             <span
               className="icon icon-bar pointer"
               onClick={() => setNavIsActive((prevState) => !prevState)}
             >
               <FontAwesomeIcon icon={faBars} />
             </span>
-            <img className="logo pointer" src={logo} />
           </div>
           <div></div>
           <div>
@@ -39,10 +42,10 @@ const Menu = ({ user, logOut }) => {
               <FontAwesomeIcon icon={faSearch} />
             </span>
             <div>
-              <span className="pointer two-icon">
+              {/* <span className="pointer two-icon">
                 <FontAwesomeIcon icon={faShop} />
                 <FontAwesomeIcon icon={faCaretDown} />
-              </span>
+              </span> */}
               <span
                 className="pointer icon"
                 onClick={() => (user ? logOut() : navigate("/login"))}

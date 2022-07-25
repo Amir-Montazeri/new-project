@@ -4,7 +4,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { containerStyles, contentStyles } from "./profileStyles";
 
 function Profile({ user }) {
-  return user ? (
+  return !user ? (
     <Box sx={containerStyles}>
       header
       <Box sx={contentStyles}>

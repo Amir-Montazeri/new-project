@@ -1,5 +1,3 @@
-import logo from "./logo.svg";
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import {
   AboutUs,
@@ -25,7 +23,6 @@ import ProfileForm from "components/profile-form";
 import { GlobalStyles } from "@mui/material";
 import { Ads } from "components";
 import { connect } from "react-redux";
-import { useEffect } from "react";
 import { setIsLoading } from "store/actions";
 
 // function App({ user, setIsLoading, isLoading }) {
@@ -43,7 +40,12 @@ function App() {
       <Ads />
       <Menu />
       <GlobalStyles
-        styles={{ a: { color: "#000", ":hover": { color: "#111" } } }}
+        styles={{
+          a: { color: "#000", ":hover": { color: "#111" } },
+          "*": {
+            fontFamily: "Bahij !important",
+          },
+        }}
       />
       <Routes>
         <Route path="/" element={<Main />} />

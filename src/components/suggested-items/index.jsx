@@ -32,14 +32,18 @@ const SuggestedItems = () => {
           desc={item.desc}
           bannerUrl={item.iconUrl}
           minPrice={item.minPrice}
-          maxPrice={item.maxPrice}
         />
       </SwiperSlide>
     ));
 
   return (
     <Box sx={containerStyles}>
-      <Typography variant="h5" component="h2" sx={titleStyles}>
+      <Typography
+        variant="h5"
+        component="h2"
+        sx={titleStyles}
+        className="sepahbod-font"
+      >
         پیشنهاد ویژه
       </Typography>
       <Grid container sx={offersContainer}>

@@ -30,7 +30,7 @@ export const containerStyles = {
     },
   },
   inputStyles = {
-    padding: "0 7px",
+    padding: "10px 7px",
     direction: "rtl",
     ml: 1,
     flex: 1,
@@ -70,7 +70,7 @@ export const containerStyles = {
     },
   },
   logoContainer = {
-    height: "60%",
+    height: "80%",
     "> img": {
       height: "100%",
     },

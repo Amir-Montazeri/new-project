@@ -1,4 +1,12 @@
-import { Grid, Box, Paper, InputBase, Button, IconButton } from "@mui/material";
+import {
+  Grid,
+  Box,
+  Paper,
+  InputBase,
+  Button,
+  IconButton,
+  TextField,
+} from "@mui/material";
 import {
   containerStyles,
   mainContainerStyles,
@@ -9,9 +17,6 @@ import {
   logoContainer,
   selectContainerStyles,
 } from "./searchBox";
-import RenderedSelectItems from "./RenderedSelectItems";
-import { LocationOnOutlined } from "@mui/icons-material";
-import sampleSelectItems from "./sampleSelectItems.json";
 
 const SearchBox = () => {
   return (
@@ -27,24 +32,14 @@ const SearchBox = () => {
           <Paper sx={inputContainerStyles}>
             <InputBase
               sx={inputStyles}
-              placeholder="به دنبال چه..."
+              placeholder="چی میتونم براتون پیدا کنم؟"
               inputProps={{ "aria-label": "search google maps" }}
             />
-            <Grid container sx={selectContainerStyles}>
-              <Grid item>
-                <RenderedSelectItems items={sampleSelectItems} />
-              </Grid>
-              <Grid item>
-                <IconButton>
-                  <LocationOnOutlined />
-                </IconButton>
-              </Grid>
-            </Grid>
           </Paper>
           <Button sx={submitBtnStyles}>ادامه</Button>
         </Grid>
         <Grid item sx={logoContainer}>
-          <img src="./assets/main-backgrounds/bike.png" alt="bike logo" />
+          <img src="./assets/main-backgrounds/bg-xl01.png" alt="bike logo" />
         </Grid>
       </Grid>
     </Box>

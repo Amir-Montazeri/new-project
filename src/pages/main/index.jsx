@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 const Main = () => {
   return (
     <div>
-      <Link to="/about">About</Link>
+      {/* <Link to="/about">About</Link>
       <br />
       <Link to="/contact">contact</Link>
       <br />
@@ -35,7 +35,7 @@ const Main = () => {
       <br />
       <Link to="/profile/support">support</Link>
       <br />
-      <Link to="/FAQ">FAQ</Link>
+      <Link to="/FAQ">FAQ</Link> */}
       <MainBanner />
       <SearchBox />
       <ItemsTypes />

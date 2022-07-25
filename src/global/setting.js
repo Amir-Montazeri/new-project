@@ -1,4 +1,4 @@
-const setting={
-   baseUrl :'http://193.141.64.166:8081/' 
-}
-export default setting
+const setting = {
+  baseUrl: "http://192.168.1.171:8088/",
+};
+export default setting;

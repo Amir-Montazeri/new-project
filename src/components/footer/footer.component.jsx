@@ -25,7 +25,7 @@ const Footer = () => {
         }}
       >
         <Grid item sx={{ ...titleStyles, width: "19%" }}>
-          همکاری با ما
+          مراحل ثبت فروشگاه
         </Grid>
         <Grid item sx={{ ...titleStyles, width: "24%" }}>
           قوانینن و مقررات
@@ -34,10 +34,10 @@ const Footer = () => {
           پشتیبانی
         </Grid>
         <Grid item sx={{ ...titleStyles, width: "19%" }}>
-          تماس با ما
+          شرایط خرید اعتباری
         </Grid>
         <Grid item sx={{ ...titleStyles, width: "19%" }}>
-          نمایندگی
+          مراحل ثبت سفارش
         </Grid>
       </Grid>
       <Row className="footer-images mt-2">
@@ -65,7 +65,7 @@ const Footer = () => {
               className="font-size-14 xs-font-size-16 sm-font-size-16"
               style={{ direction: "rtl !important" }}
             >
-              34221 - 021
+              021 - 34221
             </p>
             <p className="font-size-10 xs-font-size-11 sm-font-size-11">
               پشتیبانی 24 ساعته
