@@ -10,34 +10,28 @@ import FormFooter from "./FormFooter";
 import { base_api_url } from "api";
 import { getItem } from "lcoalStorage";
 
-const ProfileForm = ({ setUserOk, user }) => {
+const BusinessForm = ({ setUserOk, user }) => {
 	const navigate = useNavigate();
 	const [extraFormDatas, setExtraFormDatas] = useState({});
 	const { register, handleSubmit } = useForm();
 	const [errs, setErrs] = useState();
 
 	const handleOnFormSubmit = e => {
-		const result = { ...e, ...extraFormDatas };
+		let formData = new FormData();
 		const accessToken = getItem("access");
-		console.log("resu: ", result);
+		const results = { ...e, ...extraFormDatas };
+		Object.keys(results).map(resultKey => {
+			formData.append(resultKey, results[resultKey] || "");
+		});
 		axios
-			.post(
-				`${base_api_url}/Profile/`,
-				{
-					...result,
+			.post(`${base_api_url}/BusinessInfo/`, formData, {
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
 				},
-				{
-					headers: {
-						Authorization: `Bearer ${accessToken}`,
-					},
-				}
-			)
+			})
 			.then(res => {
-				result.user_type === "B"
-					? navigate("/profile/business")
-					: navigate("/");
 				console.log("suc ", res);
-				setUserOk();
+				// setUserOk();
 			})
 			.catch(err => {
 				console.log("err: ", err.response.data);
@@ -51,6 +45,9 @@ const ProfileForm = ({ setUserOk, user }) => {
 				register={register}
 				setType={data => setExtraFormDatas({ user_type: data })}
 				errs={errs}
+				setExtraFormData={data =>
+					setExtraFormDatas(prevState => ({ ...prevState, ...data }))
+				}
 				// onProfileChanged={(data) =>
 				//   setExtraFormDatas((prevState) => ({
 				//     ...prevState,
@@ -67,4 +64,4 @@ const mapStateToProps = state => ({
 	user: state.user,
 });
 
-export default connect(mapStateToProps, { setUserOk })(ProfileForm);
+export default connect(mapStateToProps, { setUserOk })(BusinessForm);
