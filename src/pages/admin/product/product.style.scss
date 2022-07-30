@@ -1,40 +1,66 @@
 @import "../../../assets/Styles/values.scss";
-.product-img {
-  position: relative;
-  padding: 3px;
-  border: 1px solid black;
-  width: 250px;
-  height: 250px;
-  img {
-    width: 100%;
-    height: 100%;
-  }
-  svg {
-    position: absolute;
-    top: 5px;
-    right: 5px;
+
+.customized-container {
+  min-height: 80vh;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin: 5px 10px;
+}
+
+.products-container {
+  max-width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.star-container {
+  margin-right: 7px;
+}
+
+.product-item {
+  margin-right: 10px;
+  width: 200px;
+  height: 300px;
+  background-color: #ececec;
+  border: 2px solid #ececec;
+  box-shadow: 0 0 9px -6px #0000004b;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+
+  > * {
+    margin-bottom: 10px;
   }
 }
-.product-list-item {
-  padding: 8px;
-  display: flex;
-  & > div:nth-child(2) {
-    background-color: $pillSecondaryColor;
-    flex: 20;
+
+.product-item-banner {
+  max-height: 123px;
+  overflow-y: hidden;
+}
+
+.categories-container {
+  padding: 0 !important;
+  width: 243px;
+  min-height: 200px;
+  max-height: 50vh;
+  list-style: none;
+  background: #eeeeee48;
+  border: 1px solid #9999998e;
+  border-radius: 13px;
+  scrollbar-width: thin;
+  overflow-y: auto;
+}
+
+.p-from-corner {
+  padding: 0 5px;
+}
+
+@media screen and (max-width: 580px) {
+  .products-container {
+    width: 210px;
   }
-  & > div:nth-child(1) {
-    background-color: #f7f7f7;
-    flex: 2;
-    text-align: center;
-  }
-  a {
-    text-decoration: none;
-  }
-  img {
-    height: 100px;
-    width: 120px;
-  }
-  svg{
-    padding: 5px 3px;
+  .categories-container {
+    width: 200px;
   }
 }
