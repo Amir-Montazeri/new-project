@@ -41,6 +41,9 @@ export const containerStyles = {
     background: "#005078",
     color: "#fff",
     borderRadius: "20px",
+    ":hover": {
+      background: "#005078",
+    },
   },
   selectContainerStyles = {
     width: "27%",

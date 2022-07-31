@@ -11,6 +11,8 @@ import { Box, Grid, Typography } from "@mui/material";
 import { BsFillStarFill } from "react-icons/bs";
 import { toPersianNumber } from "functions/numbers";
 import RenderedCategories from "./RenderedCategories";
+import { connect } from "react-redux";
+import { fetchProducts } from "store/actions";
 
 const ProductItem = (item) => {
   return (
@@ -63,7 +65,7 @@ const ProductItem = (item) => {
   );
 };
 
-const ListProduct = (props) => {
+const ListProduct = ({ products, fetchProducts }) => {
   const [state, setState_] = useState({
     products: [],
     next: null,
@@ -72,21 +74,23 @@ const ListProduct = (props) => {
   const [selectedColors, setSelectedColors] = useState();
   const [selectedCategories, setSelectedCategories] = useState("");
   const [selectedSubCategory, setSelectedSubCategory] = useState("");
-
+  console.log("products: ", products);
   useEffect(() => {
-    axios
-      .get(`${base_api_url}/Load/`, {
-        Headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then((res) => {
-        const { data } = res;
-        setState_({
-          products: data.results,
-          next: data.next,
+    if (!products) {
+      axios
+        .get(`${base_api_url}/Load/`, {
+          Headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((res) => {
+          const { data } = res;
+          setState_({
+            products: data.results,
+            next: data.next,
+          });
         });
-      });
+    }
 
     axios
       .get(`${base_api_url}/Catagory/`, {
@@ -103,22 +107,7 @@ const ListProduct = (props) => {
 
   useEffect(() => {
     if (selectedCategories) {
-      axios
-        .get(`${base_api_url}/search/product/?search=${selectedSubCategory}`, {
-          Headers: {
-            "Content-Type": "application/json",
-          },
-        })
-        .then((res) => {
-          const { data } = res;
-          setState_({
-            products: data.results,
-            next: data.next,
-          });
-        })
-        .catch((err) => {
-          console.log("mmmmmmmmmmmmd: ", err);
-        });
+      fetchProducts(selectedSubCategory);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedSubCategory]);
@@ -128,7 +117,9 @@ const ListProduct = (props) => {
   return (
     <div className="customized-container">
       <div className="products-container">
-        {state?.products
+        {products
+          ? products.results.map((product) => <ProductItem {...product} />)
+          : state.products
           ? state.products.map((product) => <ProductItem {...product} />)
           : null}
       </div>
@@ -148,4 +139,8 @@ const ListProduct = (props) => {
   );
 };
 
-export default ListProduct;
+const mapStateToProps = (state) => ({
+  products: state.products,
+});
+
+export default connect(mapStateToProps, { fetchProducts })(ListProduct);

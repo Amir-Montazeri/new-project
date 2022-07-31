@@ -17,10 +17,8 @@ const config = {
 };
 
 const Slider = ({
-  slidesPerViewInXl,
-  slidesPerViewIn2lg,
-  slidesPerViewInLg,
-  slidesPerViewInSm,
+  sliderSize,
+  slideSize,
   swiperClassNames = "",
   sliderWithRadius = true,
   sliderHeight = "230px",
@@ -29,15 +27,7 @@ const Slider = ({
   children,
 }) => {
   const [windowSize, setWindowSize] = useState({ innerWidth: null });
-  console.log(
-    calSlidesPerView(
-      windowSize.innerWidth,
-      slidesPerViewInXl || null,
-      slidesPerViewIn2lg || null,
-      slidesPerViewInLg || null,
-      slidesPerViewInSm || null
-    ) || 4
-  );
+
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowSize(getWindowSize());
@@ -51,21 +41,13 @@ const Slider = ({
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
-
+  console.log({ sliderSize, slideSize });
   return (
     <Swiper
       {...config}
       {...swiperConfig}
       modules={[...(swiperConfig.modules || []), ...config.modules]}
-      slidesPerView={
-        calSlidesPerView(
-          windowSize.innerWidth,
-          slidesPerViewInXl || null,
-          slidesPerViewIn2lg || null,
-          slidesPerViewInLg || null,
-          slidesPerViewInSm || null
-        ) || 6
-      }
+      slidesPerView={sliderSize / slideSize}
       className={
         !sliderWithRadius
           ? `swiper-without-radius ${swiperClassNames}`

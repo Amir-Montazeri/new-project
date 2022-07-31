@@ -1,30 +1,41 @@
 import { Box } from "@mui/material";
+import { connect } from "react-redux";
+import { useLocation } from "react-router-dom";
+import pagesName from "./pagesName";
 
-function Ads() {
+function Ads({ adBanners }) {
+  const location = useLocation();
+
   return (
-    <Box
-      sx={{
-        position: "relative",
-        height: "100px",
-        cursor: "pointer",
-        "*": { zIndex: 20 },
-      }}
-    >
+    adBanners[pagesName[location.pathname]] && (
       <Box
         sx={{
-          width: "100vw",
+          position: "relative",
           height: "100px",
-          overflow: "hidden",
+          cursor: "pointer",
+          "*": { zIndex: 20 },
         }}
       >
-        <img
-          src="https://file.soft98.ir/afrak6.az"
-          className="ad-banner"
-          alt="ads banner"
-        />
+        <Box
+          sx={{
+            width: "100vw",
+            height: "100px",
+            overflow: "hidden",
+          }}
+        >
+          <img
+            src={adBanners[pagesName[location.pathname]]?.banner_file || ""}
+            className="ad-banner"
+            alt="ads banner"
+          />
+        </Box>
       </Box>
-    </Box>
+    )
   );
 }
 
-export default Ads;
+const mapStateToProps = (state) => ({
+  adBanners: state.adBanners,
+});
+
+export default connect(mapStateToProps)(Ads);

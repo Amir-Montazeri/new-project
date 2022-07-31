@@ -10,6 +10,7 @@ import {
 } from "./suggestedItemsStyles";
 import sampleItems from "./sampleItems.json";
 import ItemDramatic from "components/item-dramatic";
+import { createRef, useEffect, useState } from "react";
 
 const config = {
     sliderWithRadius: false,
@@ -20,10 +21,36 @@ const config = {
   };
 
 const SuggestedItems = () => {
+  const [refSizes, setRefSizes] = useState({
+    sliderSize: null,
+    slideSize: null,
+  });
+  const sliderRef = createRef();
+  const slideRef = createRef();
+
+  useEffect(() => {
+    typeof sliderRef.current.clientWidth === "number" &&
+      refSizes.sliderSize !== sliderRef.current.clientWidth &&
+      setRefSizes((prevState) => ({
+        ...prevState,
+        sliderSize: sliderRef.current.clientWidth,
+      }));
+  }, [sliderRef]);
+
+  useEffect(() => {
+    typeof slideRef.current.clientWidth === "number" &&
+      refSizes.slideSize !== slideRef.current.clientWidth &&
+      setRefSizes((prevState) => ({
+        ...prevState,
+        slideSize: slideRef.current.clientWidth,
+      }));
+  }, [slideRef]);
+
   const renderedSlides = (items) =>
     items.map((item) => (
       <SwiperSlide
         key={item.id}
+        ref={slideRef}
         className="edited-slider slides-with-radius cursor-pointer userselect-none"
         style={{ borderRadius: "9px" }}
       >
@@ -47,15 +74,8 @@ const SuggestedItems = () => {
         پیشنهاد ویژه
       </Typography>
       <Grid container sx={offersContainer}>
-        <Grid item component="div" sx={slidesContainerStyles}>
-          <Slider
-            {...config}
-            swiperConfig={swiperConfig}
-            slidesPerViewInSm={2}
-            slidesPerViewInLg={3.4}
-            slidesPerViewIn2lg={3.8}
-            slidesPerViewInXl={5.4}
-          >
+        <Grid item ref={sliderRef} component="div" sx={slidesContainerStyles}>
+          <Slider {...config} swiperConfig={swiperConfig} {...refSizes}>
             {renderedSlides(sampleItems)}
             <SwiperSlide className="transparentb-bg cursor-pointer userselect-none">
               <img

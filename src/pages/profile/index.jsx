@@ -6,7 +6,7 @@ import { containerStyles, contentStyles } from "./profileStyles";
 function Profile({ user }) {
   return user ? (
     <Box sx={containerStyles}>
-      header
+      {/* header */}
       <Box sx={contentStyles}>
         <Outlet />
       </Box>
