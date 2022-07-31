@@ -1,7 +1,7 @@
 export const containerStyles = {
     position: "absolute",
     top: "5em",
-    left: "-102%",
+    right: "-102%",
     height: "calc(100vh - 5em)",
     width: "330px",
     bgcolor: "#fff",
@@ -15,5 +15,5 @@ export const containerStyles = {
     },
   },
   activeNavStyles = {
-    left: 0,
+    right: 0,
   };

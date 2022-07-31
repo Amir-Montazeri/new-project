@@ -1,8 +1,18 @@
 import { Box, Grid, Typography } from "@mui/material";
+import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { fetchProducts } from "store/actions";
 import { containerStyles, titleStyles } from "./itemsTypesStyles";
 import sampleItems from "./sampleItems.json";
 
-const ItemsTypes = () => {
+const ItemsTypes = ({ fetchProducts }) => {
+  const navigate = useNavigate();
+
+  const handleItemClicked = (categoryName) => {
+    fetchProducts(`search=${categoryName}`);
+    navigate("/products");
+  };
+
   const renderedSlides = (items) =>
     items.map((item) => (
       <Grid
@@ -19,6 +29,7 @@ const ItemsTypes = () => {
             width: "70px",
           },
         }}
+        onClick={() => handleItemClicked(item.categoryName)}
       >
         <img
           src={item.iconUrl}
@@ -61,4 +72,4 @@ const ItemsTypes = () => {
   );
 };
 
-export default ItemsTypes;
+export default connect(null, { fetchProducts })(ItemsTypes);

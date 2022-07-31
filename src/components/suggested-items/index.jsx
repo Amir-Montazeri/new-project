@@ -11,6 +11,9 @@ import {
 import sampleItems from "./sampleItems.json";
 import ItemDramatic from "components/item-dramatic";
 import { createRef, useEffect, useState } from "react";
+import { fetchMainPage } from "store/actions";
+import { connect } from "react-redux";
+import { base_api_url } from "api";
 
 const config = {
     sliderWithRadius: false,
@@ -20,13 +23,22 @@ const config = {
     navigation: false,
   };
 
-const SuggestedItems = () => {
+const SuggestedItems = ({ mainPage, fetchMainPage }) => {
   const [refSizes, setRefSizes] = useState({
     sliderSize: null,
     slideSize: null,
   });
   const sliderRef = createRef();
   const slideRef = createRef();
+
+  console.log("kirkhare: ", mainPage?.special_offer);
+
+  useEffect(() => {
+    if (!mainPage) {
+      fetchMainPage();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     typeof sliderRef.current.clientWidth === "number" &&
@@ -35,19 +47,21 @@ const SuggestedItems = () => {
         ...prevState,
         sliderSize: sliderRef.current.clientWidth,
       }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sliderRef]);
 
   useEffect(() => {
-    typeof slideRef.current.clientWidth === "number" &&
+    typeof slideRef.current?.clientWidth === "number" &&
       refSizes.slideSize !== slideRef.current.clientWidth &&
       setRefSizes((prevState) => ({
         ...prevState,
         slideSize: slideRef.current.clientWidth,
       }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slideRef]);
 
-  const renderedSlides = (items) =>
-    items.map((item) => (
+  const renderedSlides = () =>
+    mainPage?.special_offer?.map((item) => (
       <SwiperSlide
         key={item.id}
         ref={slideRef}
@@ -55,10 +69,11 @@ const SuggestedItems = () => {
         style={{ borderRadius: "9px" }}
       >
         <ItemDramatic
-          title={item.title}
-          desc={item.desc}
-          bannerUrl={item.iconUrl}
-          minPrice={item.minPrice}
+          title={item.name}
+          // title={"مرغ"}
+          desc={item.for_us ? "موجود در انبار پلاست اب" : "به تو ربطی نداره"}
+          bannerUrl={base_api_url + item.image1}
+          minPrice={item.price}
         />
       </SwiperSlide>
     ));
@@ -76,7 +91,7 @@ const SuggestedItems = () => {
       <Grid container sx={offersContainer}>
         <Grid item ref={sliderRef} component="div" sx={slidesContainerStyles}>
           <Slider {...config} swiperConfig={swiperConfig} {...refSizes}>
-            {renderedSlides(sampleItems)}
+            {renderedSlides()}
             <SwiperSlide className="transparentb-bg cursor-pointer userselect-none">
               <img
                 src="./assets/main-backgrounds/offer-banner.jpg"
@@ -84,6 +99,7 @@ const SuggestedItems = () => {
                 height="100%"
               />
             </SwiperSlide>
+            {/* {renderedSlides(sampleItems)} */}
           </Slider>
         </Grid>
       </Grid>
@@ -91,4 +107,8 @@ const SuggestedItems = () => {
   );
 };
 
-export default SuggestedItems;
+const mapStateToProps = (state) => ({
+  mainPage: state.mainPage,
+});
+
+export default connect(mapStateToProps, { fetchMainPage })(SuggestedItems);

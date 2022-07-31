@@ -8,7 +8,6 @@ import SecondBanner from "components/second-banner";
 import SecondSallingItems from "components/second-salling-items";
 import SuggestedItems from "components/suggested-items";
 import ThirdBanner from "components/third-banner";
-import { Link } from "react-router-dom";
 
 const Main = () => {
   return (

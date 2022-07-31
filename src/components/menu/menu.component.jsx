@@ -22,19 +22,13 @@ const Menu = ({ user, logOut }) => {
 
   return (
     <div style={{ position: "relative" }}>
-      <nav>
+      <nav style={{ display: "flex", alignItems: "center" }}>
         <div
           className="header-container"
           style={{ display: "flex", flexDirection: "row-reverse" }}
         >
           <div>
             <img className="logo pointer" src={logo} />
-            <span
-              className="icon icon-bar pointer"
-              onClick={() => setNavIsActive((prevState) => !prevState)}
-            >
-              <FontAwesomeIcon icon={faBars} />
-            </span>
           </div>
           <div></div>
           <div>
@@ -63,6 +57,14 @@ const Menu = ({ user, logOut }) => {
         <div className="header-search-container">
           <FontAwesomeIcon icon={faSearch} />
           <input type="text" className="search-input" />
+        </div>
+        <div>
+          <span
+            className="icon icon-bar pointer"
+            onClick={() => setNavIsActive((prevState) => !prevState)}
+          >
+            <FontAwesomeIcon icon={faBars} />
+          </span>
         </div>
       </nav>
       <NavBar isActive={navIsActive} />

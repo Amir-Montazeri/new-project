@@ -1,8 +1,6 @@
-import { Box, setRef } from "@mui/material";
+import { Box } from "@mui/material";
 import ItemDramatic from "components/item-dramatic";
 import Slider from "components/items-slider/Slider";
-import { useState } from "react";
-import { createRef, useEffect } from "react";
 import { Autoplay } from "swiper";
 import { SwiperSlide } from "swiper/react";
 import { containerStyles } from "./firstSallingItemsStyles";
@@ -22,37 +20,11 @@ const config = {
   };
 
 const FirstSallingItems = () => {
-  const [refSizes, setRefSizes] = useState({
-    sliderSize: null,
-    slideSize: null,
-  });
-  const sliderRef = createRef();
-  const slideRef = createRef();
-
-  useEffect(() => {
-    typeof sliderRef.current.clientWidth === "number" &&
-      refSizes.sliderSize !== sliderRef.current.clientWidth &&
-      setRefSizes((prevState) => ({
-        ...prevState,
-        sliderSize: sliderRef.current.clientWidth,
-      }));
-  }, [sliderRef]);
-
-  useEffect(() => {
-    typeof slideRef.current.clientWidth === "number" &&
-      refSizes.slideSize !== slideRef.current.clientWidth &&
-      setRefSizes((prevState) => ({
-        ...prevState,
-        slideSize: slideRef.current.clientWidth,
-      }));
-  }, [slideRef]);
-
   const renderedItems = (items) =>
     items.map((item) => {
       return (
         <SwiperSlide
           key={item.id}
-          ref={slideRef}
           style={{ background: "#fff", height: "240px", width: "240px" }}
           className="slides-with-radius mini-slider cursor-pointer userselect-none"
         >
@@ -67,8 +39,8 @@ const FirstSallingItems = () => {
       );
     });
   return (
-    <Box ref={sliderRef} sx={containerStyles}>
-      <Slider {...config} swiperConfig={swiperConfig} {...refSizes}>
+    <Box sx={containerStyles}>
+      <Slider {...config} swiperConfig={swiperConfig} autoSildesPerView>
         {renderedItems(sampleItems)}
       </Slider>
     </Box>

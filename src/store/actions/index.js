@@ -4,6 +4,7 @@ import { deleteItem } from "lcoalStorage";
 import {
   DELETE_PRODUCT_LIST,
   FETCH_ADBANNERS,
+  FETCH_MAINPAGE,
   IS_LOADING,
   LOG_OUT,
   SET_PRODUCTS,
@@ -58,6 +59,15 @@ export const fetchAdBanners = () => async (dispatch) => {
 
   dispatch({
     type: FETCH_ADBANNERS,
+    payload: data,
+  });
+};
+
+export const fetchMainPage = () => async (dispatch) => {
+  const { data } = await axios.get(`${base_api_url}/LoadPoster/`);
+
+  dispatch({
+    type: FETCH_MAINPAGE,
     payload: data,
   });
 };

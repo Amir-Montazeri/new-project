@@ -18,7 +18,17 @@ const ProductItem = (item) => {
   return (
     <Box key={item.id} className="product-item">
       <Box className="product-item-banner">
-        <img src={item.image1} alt={item.keyword} width="100%" />
+        <Box
+          sx={{
+            width: "100%",
+            height: "100%",
+            background: `url(${item.image1})`,
+            backgroundPosition: "center",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+        {/* <img src={item.image1} alt={item.keyword} width="100%" /> */}
       </Box>
       <Box className="p-from-corner">
         <Typography variant="h6" component="h3" className="text-right">
@@ -107,12 +117,10 @@ const ListProduct = ({ products, fetchProducts }) => {
 
   useEffect(() => {
     if (selectedCategories) {
-      fetchProducts(selectedSubCategory);
+      fetchProducts(`search=${selectedSubCategory}`);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedSubCategory]);
-
-  console.log("state", state);
 
   return (
     <div className="customized-container">

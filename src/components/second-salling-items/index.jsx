@@ -4,7 +4,6 @@ import Slider from "components/items-slider/Slider";
 import { SwiperSlide } from "swiper/react";
 import { containerStyles } from "./secondSallingItemsStyles";
 import sampleItems from "./sampleItems.json";
-import { createRef, useEffect, useState } from "react";
 
 const config = {
     sliderWithRadius: false,
@@ -15,37 +14,11 @@ const config = {
   };
 
 const SecondSallingItems = () => {
-  const [refSizes, setRefSizes] = useState({
-    sliderSize: null,
-    slideSize: null,
-  });
-  const sliderRef = createRef();
-  const slideRef = createRef();
-
-  useEffect(() => {
-    typeof sliderRef.current.clientWidth === "number" &&
-      refSizes.sliderSize !== sliderRef.current.clientWidth &&
-      setRefSizes((prevState) => ({
-        ...prevState,
-        sliderSize: sliderRef.current.clientWidth,
-      }));
-  }, [sliderRef]);
-
-  useEffect(() => {
-    typeof slideRef.current.clientWidth === "number" &&
-      refSizes.slideSize !== slideRef.current.clientWidth &&
-      setRefSizes((prevState) => ({
-        ...prevState,
-        slideSize: slideRef.current.clientWidth,
-      }));
-  }, [slideRef]);
-
   const renderedItems = (items) =>
     items.map((item) => {
       return (
         <SwiperSlide
           key={item.id}
-          ref={slideRef}
           style={{ background: "#fff" }}
           className="slides-with-radius mini-slider cursor-pointer userselect-none"
         >
@@ -61,8 +34,8 @@ const SecondSallingItems = () => {
     });
 
   return (
-    <Box ref={sliderRef} sx={containerStyles}>
-      <Slider {...config} swiperConfig={swiperConfig} {...refSizes}>
+    <Box sx={containerStyles}>
+      <Slider {...config} swiperConfig={swiperConfig} autoSildesPerView>
         {renderedItems(sampleItems)}
       </Slider>
     </Box>

@@ -56,7 +56,10 @@ function Login({ isLoading, setIsLoading, setUser, user }) {
   return user?.access ? (
     <Navigate to={user["is_ok"] ? "/profile/business" : "/profile/me"} />
   ) : (
-    <div className="min-vh-100 bg-primary d-flex justify-content-center align-items-center">
+    <div
+      className="min-vh-100 d-flex justify-content-center align-items-center"
+      style={{ background: "#015077" }}
+    >
       <Container>
         <Row>
           <Col xs={10} md={8} lg={5} className="bg-white mx-auto rounded">
