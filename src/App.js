@@ -27,6 +27,8 @@ import { setIsLoading, fetchAdBanners } from "store/actions";
 import BusinessForm from "components/business-form";
 import { useEffect } from "react";
 
+import Product from "pages/product";
+
 // function App({ user, setIsLoading, isLoading }) {
 function App({ fetchAdBanners }) {
   // useEffect(() => {
@@ -62,6 +64,7 @@ function App({ fetchAdBanners }) {
         <Route path="/register" element={<Register />} />
         {/* <Route path="/admin" element={<AdminTemplate />}> */}
         <Route path="products" element={<ListProduct />} />
+        <Route path="product/:id" element={<Product />} />
         <Route path="product/create" element={<CreateProduct />} />
         <Route path="/profile" element={<Profile />}>
           <Route path="me" element={<ProfileForm />} />
