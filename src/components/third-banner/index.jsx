@@ -1,25 +1,27 @@
 import { Grid } from "@mui/material";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { containerStyles, itemsStyles } from "./secondBannerStyles";
 
-const ThirdBanner = () => {
+const ThirdBanner = ({ images }) => {
   return (
     <Grid container flexWrap="nowrap" sx={containerStyles}>
       <Grid item sx={{ ...itemsStyles, marginRight: "5px" }}>
-        <img
-          width="100%"
-          src="./assets/main-backgrounds/second-banner-left.jpg"
-          alt="banner"
-        />
+        <Link to={images?.url_of_row_4_poster_1 || ""}>
+          <img width="100%" src={images?.row_4_poster_1 || ""} alt="banner" />
+        </Link>
       </Grid>
       <Grid item sx={itemsStyles}>
-        <img
-          width="100%"
-          src="./assets/main-backgrounds/second-banner-right.jpg"
-          alt="banner"
-        />
+        <Link to={images?.url_of_row_4_poster_2 || ""}>
+          <img width="100%" src={images?.row_4_poster_2 || ""} alt="banner" />
+        </Link>
       </Grid>
     </Grid>
   );
 };
 
-export default ThirdBanner;
+const mapStateToProps = (state) => ({
+  images: state.mainPage?.main_page_content,
+});
+
+export default connect(mapStateToProps)(ThirdBanner);

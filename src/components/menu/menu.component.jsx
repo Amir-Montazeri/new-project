@@ -67,7 +67,10 @@ const Menu = ({ user, logOut }) => {
           </span>
         </div>
       </nav>
-      <NavBar isActive={navIsActive} />
+      <NavBar
+        isActive={navIsActive}
+        setIsActive={(value) => setNavIsActive(value)}
+      />
     </div>
   );
 };

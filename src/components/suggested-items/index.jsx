@@ -14,6 +14,7 @@ import { createRef, useEffect, useState } from "react";
 import { fetchMainPage } from "store/actions";
 import { connect } from "react-redux";
 import { base_api_url } from "api";
+import { Link } from "react-router-dom";
 
 const config = {
     sliderWithRadius: false,
@@ -30,8 +31,6 @@ const SuggestedItems = ({ mainPage, fetchMainPage }) => {
   });
   const sliderRef = createRef();
   const slideRef = createRef();
-
-  console.log("kirkhare: ", mainPage?.special_offer);
 
   useEffect(() => {
     if (!mainPage) {
@@ -68,13 +67,17 @@ const SuggestedItems = ({ mainPage, fetchMainPage }) => {
         className="edited-slider slides-with-radius cursor-pointer userselect-none"
         style={{ borderRadius: "9px" }}
       >
-        <ItemDramatic
-          title={item.name}
-          // title={"مرغ"}
-          desc={item.for_us ? "موجود در انبار پلاست اب" : "به تو ربطی نداره"}
-          bannerUrl={base_api_url + item.image1}
-          minPrice={item.price}
-        />
+        <Link to={`/product/${item.id}`} style={{ height: "100%" }}>
+          <ItemDramatic
+            title={item.name}
+            // title={"مرغ"}
+            desc={
+              item.for_us ? "موجود در انبار پلاست اب" : "موجود در انبار فروشنده"
+            }
+            bannerUrl={base_api_url + item.image1}
+            minPrice={item.price}
+          />
+        </Link>
       </SwiperSlide>
     ));
 

@@ -10,6 +10,7 @@ import Link from "../../components/Link/mLink";
 import Logo from "assets/Images/logo.svg";
 import { Grid, Typography } from "@mui/material";
 import { base_api_url } from "api";
+import { toDouble } from "functions/numbers";
 
 function Register({ isLoading, user, setIsLoading }) {
   const navigate = useNavigate();
@@ -263,7 +264,7 @@ function Register({ isLoading, user, setIsLoading }) {
                       border: "1px solid #000",
                     }}
                   >
-                    {resendCodeTimeout}
+                    {toDouble(resendCodeTimeout)}
                   </Typography>
                 </Grid>
               </Grid>

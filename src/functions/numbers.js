@@ -20,3 +20,11 @@ export const toPersianNumber = (n) => {
     .map((x) => farsiDigits[x])
     .join("");
 };
+
+export const toDouble = (number) => {
+  let result = number;
+  if (number < 10) {
+    result = `0${number}`;
+  } else result = result.toString();
+  return result;
+};

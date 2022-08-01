@@ -8,28 +8,30 @@ function Ads({ adBanners }) {
 
   return (
     adBanners[pagesName[location.pathname]] && (
-      <Box
-        sx={{
-          position: "relative",
-          height: "100px",
-          cursor: "pointer",
-          "*": { zIndex: 20 },
-        }}
-      >
+      <a href={adBanners[pagesName[location.pathname]]?.url || ""}>
         <Box
           sx={{
-            width: "100vw",
+            position: "relative",
             height: "100px",
-            overflow: "hidden",
+            cursor: "pointer",
+            "*": { zIndex: 20 },
           }}
         >
-          <img
-            src={adBanners[pagesName[location.pathname]]?.banner_file || ""}
-            className="ad-banner"
-            alt="ads banner"
-          />
+          <Box
+            sx={{
+              width: "100vw",
+              height: "100px",
+              overflow: "hidden",
+            }}
+          >
+            <img
+              src={adBanners[pagesName[location.pathname]]?.banner_file || ""}
+              className="ad-banner"
+              alt="ads banner"
+            />
+          </Box>
         </Box>
-      </Box>
+      </a>
     )
   );
 }

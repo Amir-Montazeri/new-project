@@ -44,6 +44,7 @@ function SupportUploadImg({ register }) {
             style={{ display: "none" }}
             {...imgValue}
             onChange={handleImgChanged}
+            {...register("image_test")}
           />
           <img src={uploadIcon} alt="upload your file" />
         </Grid>

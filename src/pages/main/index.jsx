@@ -1,4 +1,5 @@
 import { Container } from "@mui/material";
+import { MainAbout } from "components";
 import FirstSallingItems from "components/first-salling-items";
 import HomeDownloadApp from "components/home-download-app";
 import ItemsTypes from "components/items-types";
@@ -18,6 +19,7 @@ const Main = () => {
       <SuggestedItems />
       <SecondBanner />
       <Container maxWidth="lg">
+        <MainAbout />
         <FirstSallingItems />
         <ThirdBanner />
         <SecondSallingItems />

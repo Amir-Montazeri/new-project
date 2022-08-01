@@ -1,4 +1,6 @@
 export const containerStyles = {
+    padding: "0 20px",
+    minHeight: "70vh",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
