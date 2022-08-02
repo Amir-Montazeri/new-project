@@ -1,5 +1,6 @@
 const Price = () => {
   return (
+    <>
     <div className="price-container">
       <p>قیمت</p>
       <div>
@@ -13,6 +14,10 @@ const Price = () => {
         </div>
       </div>
     </div>
+        <div className="btn-container-large">
+          <button className="add-product--large">افزودن به سبد</button>
+        </div>
+        </>
   );
 };
 
