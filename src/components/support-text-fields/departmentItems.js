@@ -1,14 +1,14 @@
 export const items = [
   {
-    title: "مدیریت",
-    value: "manager",
+    title: "سطح بالا",
+    value: 1,
   },
   {
-    title: "حسابداری",
-    value: "accounting",
+    title: "سطح متوسط",
+    value: 2,
   },
   {
-    title: "بخش فنی",
-    value: "technical",
+    title: "سطح پایین",
+    value: 3,
   },
 ];

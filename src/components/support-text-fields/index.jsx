@@ -11,11 +11,11 @@ function SupportTextFields({ register }) {
     <Grid item sx={containerStyles}>
       <TextField
         select
-        label="دپارتمان"
+        label="اولویت"
         fullWidth
         required
         sx={textFieldsStyles}
-        {...register("type")}
+        {...register("priority")}
       >
         {items.map(({ title, value }) => (
           <MenuItem key={value} value={value}>
@@ -30,7 +30,7 @@ function SupportTextFields({ register }) {
         required
         variant="outlined"
         sx={textFieldsStyles}
-        {...register("sub")}
+        {...register("title")}
       />
       <TextField
         type="text"
@@ -40,7 +40,7 @@ function SupportTextFields({ register }) {
         required
         fullWidth
         sx={{ ...textFieldsStyles, lastTextFieldStyles }}
-        {...register("content")}
+        {...register("description")}
       />
     </Grid>
   );

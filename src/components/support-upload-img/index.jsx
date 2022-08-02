@@ -7,44 +7,37 @@ import {
 } from "./supportUploadImgStyles";
 import uploadIcon from "assets/icons-dir/upload.svg";
 
-function SupportUploadImg({ register }) {
-  const [uploadedImg, setImg] = useState(null);
+function SupportUploadImg({ ticketImage, setTicketImage }) {
+  // const [uploadedImg, setImg] = useState(null);
   const inputRef = createRef();
-  const imgValue = uploadedImg
-    ? {
-        ...register("imgContent"),
-      }
-    : {};
+  // const imgValue = uploadedImg
+  //   ? {
+  //       ...register("imgContent"),
+  //     }
+  //   : {};
 
-  const handleImgChanged = (e) => {
-    console.log(e.target.files);
-    const fileObj = e.target.files && e.target.files[0];
-    if (!fileObj) return;
-
-    const objectUrl = URL.createObjectURL(fileObj);
-    setImg({ file: objectUrl, path: fileObj });
-  };
+  console.log({ ticketImage });
 
   return (
     <Grid item sx={containerStyles} onClick={() => inputRef.current.click()}>
-      {uploadedImg ? (
+      {/* {ticketImage ? (
         <img
-          src={uploadedImg?.file ?? uploadedImg.file}
+          src={ticketImage?.file ?? ticketImage.file}
           alt="your uploaded file"
           height="80%"
         />
       ) : (
         <DefaultImg />
-      )}
+      )} */}
+      <DefaultImg />
       <Grid container justifyContent="space-between" sx={inputContainerStyles}>
         <Grid item>
           <input
             ref={inputRef}
             type="file"
             style={{ display: "none" }}
-            {...imgValue}
-            onChange={handleImgChanged}
-            {...register("image_test")}
+            // value={ticketImage}
+            onChange={(e) => setTicketImage(e.target.files[0])}
           />
           <img src={uploadIcon} alt="upload your file" />
         </Grid>
