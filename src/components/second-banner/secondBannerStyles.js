@@ -3,5 +3,6 @@ export const containerStyles = {
     width: "85%",
   },
   itemsStyles = {
+    width: "50%",
     cursor: "pointer",
   };

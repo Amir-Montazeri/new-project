@@ -13,55 +13,68 @@ import { toPersianNumber } from "functions/numbers";
 import RenderedCategories from "./RenderedCategories";
 import { connect } from "react-redux";
 import { fetchProducts } from "store/actions";
+import { Link } from "react-router-dom";
 
 const ProductItem = (item) => {
   return (
-    <Box key={item.id} className="product-item">
-      <Box className="product-item-banner">
-        <img src={item.image1} alt={item.keyword} width="100%" />
-      </Box>
-      <Box className="p-from-corner">
-        <Typography variant="h6" component="h3" className="text-right">
-          {item.name}
-        </Typography>
-      </Box>
-      <Grid
-        container
-        alignItems="center"
-        justifyContent="space-between"
-        className="p-from-corner"
-      >
-        <Grid item>
-          <BsFillStarFill
-            className="star-container"
-            size="15px"
-            color="rgb(250, 176, 1)"
+    <Link to={`/product/${item.id}`}>
+      <Box key={item.id} className="product-item">
+        <Box className="product-item-banner">
+          <Box
+            sx={{
+              width: "100%",
+              height: "100%",
+              background: `url(${item.image1})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
           />
-          {toPersianNumber(item.score)}
-        </Grid>
-        <Grid item>
-          <Typography sx={{ direction: "rtl !important" }}>
-            تعداد {item.stock} موجود.
+          {/* <img src={item.image1} alt={item.keyword} width="100%" /> */}
+        </Box>
+        <Box className="p-from-corner">
+          <Typography variant="h6" component="h3" className="text-right">
+            {item.name}
           </Typography>
+        </Box>
+        <Grid
+          container
+          alignItems="center"
+          justifyContent="space-between"
+          className="p-from-corner"
+        >
+          <Grid item>
+            <BsFillStarFill
+              className="star-container"
+              size="15px"
+              color="rgb(250, 176, 1)"
+            />
+            {toPersianNumber(item.score)}
+          </Grid>
+          <Grid item>
+            <Typography sx={{ direction: "rtl !important" }}>
+              تعداد {item.stock} موجود.
+            </Typography>
+          </Grid>
         </Grid>
-      </Grid>
-      <Grid
-        container
-        alignItems="center"
-        justifyContent="space-between"
-        className="p-from-corner"
-      >
-        <Grid item>
-          <Typography
-            variant="body1"
-            sx={{ fontWeight: "900", direction: "rtl !important" }}
-          >
-            {toPersianNumber(item.price)} تومان
-          </Typography>
+        <Grid
+          container
+          alignItems="center"
+          justifyContent="space-between"
+          className="p-from-corner"
+        >
+          <Grid item>
+            <Typography
+              variant="body1"
+              sx={{ fontWeight: "900", direction: "rtl !important" }}
+            >
+              {toPersianNumber(item.price)} تومان
+            </Typography>
+          </Grid>
+          <Grid item></Grid>
         </Grid>
-        <Grid item></Grid>
-      </Grid>
-    </Box>
+      </Box>
+    </Link>
   );
 };
 
@@ -107,19 +120,25 @@ const ListProduct = ({ products, fetchProducts }) => {
 
   useEffect(() => {
     if (selectedCategories) {
-      fetchProducts(selectedSubCategory);
+      fetchProducts(`search=${selectedSubCategory}`);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedSubCategory]);
 
-  console.log("state", state);
+  useEffect(() => {
+    console.clear();
+    if (products?.count > 0) console.log("1was", products.count > 0);
+    else if (state.products.length > 0)
+      console.log("2was", state.products.length > 0);
+    else console.log("wasnot");
+  });
 
   return (
     <div className="customized-container">
       <div className="products-container">
-        {products
+        {products?.count > 0
           ? products.results.map((product) => <ProductItem {...product} />)
-          : state.products
+          : state?.products?.length > 0
           ? state.products.map((product) => <ProductItem {...product} />)
           : null}
       </div>

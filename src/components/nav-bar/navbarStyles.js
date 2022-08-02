@@ -1,10 +1,13 @@
 export const containerStyles = {
+    padding: "0 0 0 50px !important",
     position: "absolute",
     top: "5em",
-    left: "-102%",
+    right: "-102%",
     height: "calc(100vh - 5em)",
     width: "330px",
     bgcolor: "#fff",
+    boxShadow: "-1px 0 9px -4px #000",
+    direction: "rtl",
     transition: ".5s",
     zIndex: 10,
     "@media screen and (max-width: 569px)": {
@@ -15,5 +18,11 @@ export const containerStyles = {
     },
   },
   activeNavStyles = {
-    left: 0,
+    right: 0,
+  },
+  itemStyles = {
+    position: "relative",
+    padding: "12px 15px",
+    borderBottom: "1px solid #999",
+    cursor: "pointer",
   };

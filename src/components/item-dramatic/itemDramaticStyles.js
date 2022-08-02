@@ -7,4 +7,8 @@ export const containerStyles = {
   },
   redTextStyle = {
     color: "red",
+  },
+  bannerContainerStyles = {
+    height: "90px",
+    overflow: "hidden",
   };

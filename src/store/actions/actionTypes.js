@@ -5,3 +5,4 @@ export const LOG_OUT = "LOG_OUT";
 export const DELETE_PRODUCT_LIST = "DELETE_PRODUCT_LIST";
 export const SET_PRODUCTS = "SET_PRODUCTS";
 export const FETCH_ADBANNERS = "FETCH_ADBANNERS";
+export const FETCH_MAINPAGE = "FETCH_MAINPAGE";

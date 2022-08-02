@@ -4,7 +4,9 @@ import Slider from "components/items-slider/Slider";
 import { SwiperSlide } from "swiper/react";
 import { containerStyles } from "./secondSallingItemsStyles";
 import sampleItems from "./sampleItems.json";
-import { createRef, useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { base_api_url } from "api";
+import { Link } from "react-router-dom";
 
 const config = {
     sliderWithRadius: false,
@@ -14,59 +16,46 @@ const config = {
     navigation: false,
   };
 
-const SecondSallingItems = () => {
-  const [refSizes, setRefSizes] = useState({
-    sliderSize: null,
-    slideSize: null,
-  });
-  const sliderRef = createRef();
-  const slideRef = createRef();
-
-  useEffect(() => {
-    typeof sliderRef.current.clientWidth === "number" &&
-      refSizes.sliderSize !== sliderRef.current.clientWidth &&
-      setRefSizes((prevState) => ({
-        ...prevState,
-        sliderSize: sliderRef.current.clientWidth,
-      }));
-  }, [sliderRef]);
-
-  useEffect(() => {
-    typeof slideRef.current.clientWidth === "number" &&
-      refSizes.slideSize !== slideRef.current.clientWidth &&
-      setRefSizes((prevState) => ({
-        ...prevState,
-        slideSize: slideRef.current.clientWidth,
-      }));
-  }, [slideRef]);
-
+const SecondSallingItems = ({ items }) => {
   const renderedItems = (items) =>
-    items.map((item) => {
+    items?.map((item) => {
       return (
         <SwiperSlide
           key={item.id}
-          ref={slideRef}
           style={{ background: "#fff" }}
           className="slides-with-radius mini-slider cursor-pointer userselect-none"
         >
-          <ItemDramatic
-            bannerUrl={item.iconUrl}
-            title={item.title}
-            desc={item.desc}
-            minPrice={item.minPrice || null}
-            maxPrice={item.maxPrice || null}
-          />
+          <Link
+            to={`/product/${item.id}`}
+            style={{ height: "100%", width: "100%" }}
+          >
+            <ItemDramatic
+              bannerUrl={base_api_url + item.image1}
+              title={item.name}
+              desc={
+                item.for_us
+                  ? "موجود در انبار پلاست اب"
+                  : "موجود در انبار فروشنده"
+              }
+              minPrice={item.minPrice || null}
+              maxPrice={item.maxPrice || null}
+            />
+          </Link>
         </SwiperSlide>
       );
     });
 
   return (
-    <Box ref={sliderRef} sx={containerStyles}>
-      <Slider {...config} swiperConfig={swiperConfig} {...refSizes}>
-        {renderedItems(sampleItems)}
+    <Box sx={containerStyles}>
+      <Slider {...config} swiperConfig={swiperConfig} autoSildesPerView>
+        {renderedItems(items)}
       </Slider>
     </Box>
   );
 };
 
-export default SecondSallingItems;
+const mapStateToProps = (state) => ({
+  items: state.mainPage?.row2,
+});
+
+export default connect(mapStateToProps)(SecondSallingItems);

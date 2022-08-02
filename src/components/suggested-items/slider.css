@@ -1,6 +1,7 @@
 .edited-slider {
   width: 215px !important;
   background: #fff !important;
+  overflow: hidden;
 }
 
 .banner-container {

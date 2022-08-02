@@ -1,4 +1,5 @@
 import { Container } from "@mui/material";
+import { MainAbout } from "components";
 import FirstSallingItems from "components/first-salling-items";
 import HomeDownloadApp from "components/home-download-app";
 import ItemsTypes from "components/items-types";
@@ -8,7 +9,6 @@ import SecondBanner from "components/second-banner";
 import SecondSallingItems from "components/second-salling-items";
 import SuggestedItems from "components/suggested-items";
 import ThirdBanner from "components/third-banner";
-import { Link } from "react-router-dom";
 
 const Main = () => {
   return (
@@ -19,6 +19,7 @@ const Main = () => {
       <SuggestedItems />
       <SecondBanner />
       <Container maxWidth="lg">
+        <MainAbout />
         <FirstSallingItems />
         <ThirdBanner />
         <SecondSallingItems />

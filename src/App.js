@@ -71,8 +71,8 @@ function App({ fetchAdBanners }) {
           <Route path="business" element={<BusinessForm />} />
           <Route path="purchases" element={<Purchases />} />
           <Route path="financial" element={<Financial />} />
-          <Route path="support" element={<Support />} />
         </Route>
+        <Route path="support" element={<Support />} />
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="*" element={<div>Not Found</div>} />
         {/* </Route> */}

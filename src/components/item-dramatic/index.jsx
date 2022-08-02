@@ -1,5 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 import {
+  bannerContainerStyles,
   containerStyles,
   priceStyles,
   redTextStyle,
@@ -13,8 +14,8 @@ const ItemDramatic = ({ bannerUrl, rate, title, desc, minPrice }) => (
     justifyContent="space-evenly"
     sx={containerStyles}
   >
-    <Grid item>
-      <img src={bannerUrl} alt={`${title} banner`} width="38%" />
+    <Grid item sx={bannerContainerStyles}>
+      <img src={bannerUrl} alt={`${title} banner`} width="60%" />
     </Grid>
     {rate ? (
       <Grid item>

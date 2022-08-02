@@ -19,12 +19,12 @@
 }
 
 .product-item {
-  margin-right: 10px;
+  margin: 10px;
   width: 200px;
   height: 300px;
   background-color: #ececec;
-  border: 2px solid #ececec;
-  box-shadow: 0 0 9px -6px #0000004b;
+  border: 4px solid #ececec;
+  box-shadow: 0 0 5px -3px #000;
   border-radius: 5px;
   overflow: hidden;
   cursor: pointer;
@@ -35,7 +35,7 @@
 }
 
 .product-item-banner {
-  max-height: 123px;
+  height: 150px;
   overflow-y: hidden;
 }
 

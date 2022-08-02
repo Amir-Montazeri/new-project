@@ -9,6 +9,8 @@ import { calSlidesPerView, getWindowSize } from "functions/sizes";
 const config = {
   spaceBetween: 5,
   slidesPerView: 5,
+  loop: false,
+  speed: 800,
   autoplay: {
     delay: 2000,
     disableOnInteraction: true,
@@ -19,6 +21,7 @@ const config = {
 const Slider = ({
   sliderSize,
   slideSize,
+  autoSildesPerView = false,
   swiperClassNames = "",
   sliderWithRadius = true,
   sliderHeight = "230px",
@@ -47,13 +50,18 @@ const Slider = ({
       {...config}
       {...swiperConfig}
       modules={[...(swiperConfig.modules || []), ...config.modules]}
-      slidesPerView={sliderSize / slideSize}
+      slidesPerView={autoSildesPerView ? "auto" : sliderSize / (slideSize + 5)}
+      // slidesPerView={sliderSize / (slideSize + 18)}
       className={
         !sliderWithRadius
           ? `swiper-without-radius ${swiperClassNames}`
           : swiperClassNames
       }
-      style={{ height: sliderHeight, backgroundColor: sliderBg }}
+      style={{
+        height: sliderHeight,
+        backgroundColor: sliderBg,
+        // direction: "rtl",
+      }}
     >
       {children}
     </Swiper>
