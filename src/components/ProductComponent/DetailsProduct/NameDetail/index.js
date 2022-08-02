@@ -28,7 +28,7 @@ const NameDetail = () => {
         <div className="comments-box">
           <ul>
             {commentData.map((item) => (
-              <li key={item.id}>
+              <li className="comment-modal-box" key={item.id}>
                 <p>{item.userName}</p>
                 <p>{item.content}</p>
               </li>
