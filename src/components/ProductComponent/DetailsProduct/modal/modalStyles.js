@@ -9,11 +9,12 @@ export const containerStyles = {
   },
   modalContainerStyles = {
     position: "relative",
-    padding: "15px",
+    padding: "5px",
     minHeight: "50vh",
-    width: "60vw",
+    maxHeight: "80vh",
+    width: "80vw",
     minwidth: "320px",
-    bgcolor: "#fff",
+    bgcolor: "#096caa",
     borderRadius: "5px",
   },
   closeIconStyles = {
