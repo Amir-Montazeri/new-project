@@ -9,6 +9,7 @@ import {
   Financial,
   Support,
   FAQ,
+  Tickets,
 } from "pages";
 import Login from "../src/pages/login/loginForm";
 import Register from "../src/pages/register/registerForm";
@@ -66,10 +67,15 @@ function App({ fetchAdBanners }) {
         <Route path="/profile" element={<Profile />}>
           <Route path="me" element={<ProfileForm />} />
           <Route path="business" element={<BusinessForm />} />
+
+          {/* mahsolate kharidari shode */}
           <Route path="purchases" element={<Purchases />} />
+
+          {/* sefareshate moshtaria */}
           <Route path="financial" element={<Financial />} />
         </Route>
         <Route path="support" element={<Support />} />
+        <Route path="tickets" element={<Tickets />} />
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="*" element={<div>Not Found</div>} />
         {/* </Route> */}

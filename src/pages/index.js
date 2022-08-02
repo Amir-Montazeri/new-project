@@ -7,3 +7,4 @@ export { default as Purchases } from "./purchases";
 export { default as Financial } from "./financial";
 export { default as Support } from "./support";
 export { default as FAQ } from "./FAQ";
+export { default as Tickets } from "./tickets";

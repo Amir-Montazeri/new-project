@@ -17,7 +17,7 @@ export const navItems = [
   },
   {
     title: "تیکت",
-    linkTo: "/support",
+    linkTo: "/tickets",
   },
   {
     title: "فرصت‌های شغلی",
