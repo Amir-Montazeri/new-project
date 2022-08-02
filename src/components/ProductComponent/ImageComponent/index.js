@@ -1,27 +1,23 @@
 import "index.css";
-const ImageComponent = () => {
+import { useState } from "react";
+
+const ImageComponent = ({ banners }) => {
+  const [selectedBanner, setSelectedBanner] = useState(banners[0]);
+
+  const renderedBanners = (items) =>
+    items.map(
+      (banner) =>
+        banner && (
+          <img src={banner} alt="" onClick={() => setSelectedBanner(banner)} />
+        )
+    );
+
   return (
     <div className="img-container">
       <div className="primary-img-container">
-        <img
-          src="https://www.w3schools.com/images/w3schools_green.jpg"
-          alt=""
-        />
+        <img src={selectedBanner} alt="" />
       </div>
-      <div className="img-slider">
-        <img
-          src="https://www.w3schools.com/images/w3schools_green.jpg"
-          alt=""
-        />
-        <img
-          src="https://www.w3schools.com/images/w3schools_green.jpg"
-          alt=""
-        />
-        <img
-          src="https://www.w3schools.com/images/w3schools_green.jpg"
-          alt=""
-        />
-      </div>
+      <div className="img-slider">{renderedBanners(banners)}</div>
     </div>
   );
 };

@@ -1,36 +1,24 @@
+import { toPersianNumber } from "functions/numbers";
 import { useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 import Modal from "../modal";
-const NameDetail = () => {
+const NameDetail = ({ productName, productRate, productComments }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const commentData = [
-    { id: 0, userName: "ali", content: "خیلی عالی" },
-    { id: 1, userName: "ali1", content: "خیلی عالی" },
-    { id: 2, userName: "ali2", content: "خیلی عالی" },
-    { id: 3, userName: "ali3", content: "خیلی عالی" },
-    { id: 4, userName: "ali4", content: "خیلی عالی" },
-    { id: 5, userName: "ali5", content: "خیلی عالی" },
-    { id: 6, userName: "ali6", content: "خیلی عالی" },
-    { id: 7, userName: "ali7", content: "خیلی عالی" },
-    { id: 8, userName: "ali8", content: "خیلی عالی" },
-    { id: 9, userName: "ali9", content: "خیلی عالی" },
-    { id: 10, userName: "ali10", content: "خیلی عالی" },
-  ];
 
   const showModal = () => {
     setIsOpen((p) => !p);
     console.log(isOpen);
   };
-  console.log(isOpen);
+
   return (
     <div>
       <Modal open={isOpen} handleClose={setIsOpen}>
         <div className="comments-box">
           <ul>
-            {commentData.map((item) => (
+            {productComments?.map((item) => (
               <li className="comment-modal-box" key={item.id}>
-                <p className="comment-userName">{item.userName}</p>
-                <p className="comment-content">{item.content}</p>
+                {/* <p className="comment-userName">{item.userName}</p> */}
+                <p className="comment-content">{item.comment}</p>
               </li>
             ))}
           </ul>
@@ -51,7 +39,6 @@ const NameDetail = () => {
           <textarea
             className="text-area"
             required
-            type=""
             placeholder="نظر خود را وارد کنید"
           ></textarea>
           <button type="submit" className="comment-btn-form">
@@ -59,10 +46,10 @@ const NameDetail = () => {
           </button>
         </form>
       </Modal>
-      <h3 className="product-title">سفره یکبار مصرف</h3>
+      <h3 className="product-title">{productName}</h3>
       <div className="rate">
         <AiFillStar className="star" />
-        <p>3.3</p>
+        <p>{toPersianNumber(productRate)}</p>
         <p className="number-of-rate">{"(9)"}</p>
         <p className="comment-btn" onClick={showModal}>
           دیدگاه 10
