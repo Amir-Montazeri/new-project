@@ -10,6 +10,7 @@ import {
 	Support,
 	FAQ,
 	Tickets,
+	MyProducts,
 } from "pages";
 import Login from "../src/pages/login/loginForm";
 import Register from "../src/pages/register/registerForm";
@@ -106,8 +107,8 @@ function App({ setUser, fetchAdBanners }) {
 				/>
 				{/* <Route path="/admin" element={<AdminTemplate />}> */}
 				<Route path="products" element={<ListProduct />} />
-				<Route path="product/:id" element={<ProductComponent />} />
 				<Route path="product/create" element={<CreateProduct />} />
+				<Route path="product/:id" element={<ProductComponent />} />
 				<Route path="/profile" element={<Profile />}>
 					<Route path="me" element={<ProfileForm />} />
 					<Route path="business" element={<BusinessForm />} />
@@ -121,6 +122,7 @@ function App({ setUser, fetchAdBanners }) {
 				<Route path="support" element={<Support />} />
 				<Route path="tickets" element={<Tickets />} />
 				<Route path="/FAQ" element={<FAQ />} />
+				<Route path="/my-products" element={<MyProducts />} />
 				<Route path="*" element={<div>Not Found</div>} />
 				{/* </Route> */}
 			</Routes>

@@ -10,3 +10,4 @@ export { default as FAQHeader } from "./FAQ-header";
 export { default as FAQItems } from "./FAQ-Items";
 export { default as MainAbout } from "./main-about";
 export { default as RenderIfLoggedIn } from "./render-if-logged-in";
+export { default as MyProductList } from "./my-product-list";
