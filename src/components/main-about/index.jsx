@@ -1,15 +1,39 @@
 import { Grid } from "@mui/material";
-import { containerStyles } from "./mainAboutStyles";
+import { containerStyles, itemsContainerStyles } from "./mainAboutStyles";
 
 function MainAbout() {
-  return (
-    <Grid container justifyContent="space-between" sx={containerStyles}>
-      <Grid item>1</Grid>
-      <Grid item>2</Grid>
-      <Grid item>3</Grid>
-      <Grid item>4</Grid>
-    </Grid>
-  );
+	return (
+		<Grid container justifyContent="space-between" sx={containerStyles}>
+			<Grid item sx={itemsContainerStyles}>
+				<img
+					src="./assets/main-backgrounds/zemanat.webp"
+					alt="ضمانت بازگشت کالا"
+					height="100%"
+				/>
+			</Grid>
+			<Grid item sx={itemsContainerStyles}>
+				<img
+					src="./assets/main-backgrounds/poshtibani.webp"
+					alt="ضمانت بازگشت کالا"
+					height="100%"
+				/>
+			</Grid>
+			<Grid item sx={itemsContainerStyles}>
+				<img
+					src="./assets/main-backgrounds/pardakht-amn.webp"
+					alt="ضمانت بازگشت کالا"
+					height="100%"
+				/>
+			</Grid>
+			<Grid item sx={itemsContainerStyles}>
+				<img
+					src="./assets/main-backgrounds/ersale-sari.webp"
+					alt="ضمانت بازگشت کالا"
+					height="100%"
+				/>
+			</Grid>
+		</Grid>
+	);
 }
 
 export default MainAbout;

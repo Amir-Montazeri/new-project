@@ -1,52 +1,52 @@
 [
-  {
-    "items": [
-      {
-        "iconUrl": "./assets/icons/1.png",
-        "categoryName": "نایلکس",
-        "id": 0
-      },
-      {
-        "iconUrl": "./assets/icons/2.png",
-        "categoryName": "سلولزی",
-        "id": 1
-      },
-      {
-        "iconUrl": "./assets/icons/3.png",
-        "categoryName": "یکبا مصرف",
-        "id": 2
-      },
-      {
-        "iconUrl": "./assets/icons/4.png",
-        "categoryName": "اشپزخانه",
-        "id": 3
-      }
-    ],
-    "id": 0
-  },
-  {
-    "items": [
-      {
-        "iconUrl": "./assets/icons/5.png",
-        "categoryName": "بهداشتی",
-        "id": 4
-      },
-      {
-        "iconUrl": "./assets/icons/6.png",
-        "categoryName": "سفارشات",
-        "id": 5
-      },
-      {
-        "iconUrl": "./assets/icons/7.png",
-        "categoryName": "مواد اولیه",
-        "id": 4
-      },
-      {
-        "iconUrl": "./assets/icons/8.png",
-        "categoryName": "تجهیزات",
-        "id": 5
-      }
-    ],
-    "id": 1
-  }
+	{
+		"items": [
+			{
+				"iconUrl": "./assets/icons/1.webp",
+				"categoryName": "نایلکس",
+				"id": 0
+			},
+			{
+				"iconUrl": "./assets/icons/2.webp",
+				"categoryName": "سلولزی",
+				"id": 1
+			},
+			{
+				"iconUrl": "./assets/icons/3.webp",
+				"categoryName": "یکبا مصرف",
+				"id": 2
+			},
+			{
+				"iconUrl": "./assets/icons/4.webp",
+				"categoryName": "اشپزخانه",
+				"id": 3
+			}
+		],
+		"id": 0
+	},
+	{
+		"items": [
+			{
+				"iconUrl": "./assets/icons/5.webp",
+				"categoryName": "بهداشتی",
+				"id": 4
+			},
+			{
+				"iconUrl": "./assets/icons/6.webp",
+				"categoryName": "سفارشات",
+				"id": 5
+			},
+			{
+				"iconUrl": "./assets/icons/7.webp",
+				"categoryName": "مواد اولیه",
+				"id": 4
+			},
+			{
+				"iconUrl": "./assets/icons/8.webp",
+				"categoryName": "تجهیزات",
+				"id": 5
+			}
+		],
+		"id": 1
+	}
 ]

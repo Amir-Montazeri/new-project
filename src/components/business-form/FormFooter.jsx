@@ -1,12 +1,27 @@
-import { Button } from "@mui/material";
-import { buttonStyles } from "./buttonStyles";
+import { Box, Typography } from "@mui/material";
+import { containerStyles, listContainerStyles } from "./formFooterStyles";
+import { formFooterItems } from "./formFooterData";
 
-function FormFooter() {
-  return (
-    <Button type="submit" sx={buttonStyles}>
-      تایید
-    </Button>
-  );
-}
+const FormFooter = () => {
+	const renderedItems = items =>
+		items.map(item => (
+			<Box component="li" key={item}>
+				{item}
+			</Box>
+		));
+
+	return (
+		<Box sx={containerStyles}>
+			<Typography>فروشنده محترم:</Typography>
+			<Box component="ul" sx={listContainerStyles}>
+				{renderedItems(formFooterItems)}
+			</Box>
+			<Typography>
+				درصورت عدم رعایت موارد فوق امکان تایید از سمت پلاست اپ وجود نخواهد داشت
+				.
+			</Typography>
+		</Box>
+	);
+};
 
 export default FormFooter;

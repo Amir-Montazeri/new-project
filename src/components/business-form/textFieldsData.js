@@ -13,25 +13,52 @@ export const textFields = [
 				placeholder: "نام فروشگاه",
 				iconOnRight: nameIcon,
 			},
+			// {
+			// 	name: "license_code",
+			// 	placeholder: "شماره جواز",
+			// 	iconOnRight: addressIcon,
+			// },
 			{
-				name: "license_code",
-				placeholder: "شماره جواز",
-				iconOnRight: addressIcon,
+				name: "parvane_kasb",
+				type: "file",
+				placeholder: "عکس پروانه کسب",
+				iconOnRight: preCodeIcon,
+			},
+			{
+				name: "address",
+				placeholder: "آدرس فروشگاه",
+				iconOnRight: preCodeIcon,
 			},
 		],
 		id: 0,
 	},
 	{
 		items: [
+			// {
+			// 	name: "economic_code",
+			// 	placeholder: "کد اقتصادی",
+			// 	iconOnRight: landlineIcon,
+			// },
 			{
-				name: "economic_code",
-				placeholder: "کد اقتصادی",
+				name: "code_meli",
+				placeholder: "کدملی/شناسنامه ملی",
 				iconOnRight: landlineIcon,
 			},
+			// {
+			// 	name: "Guild-unit-number",
+			// 	type: "number",
+			// 	placeholder: "شماره صنفی",
+			// 	iconOnRight: preCodeIcon,
+			// },
 			{
-				name: "Guild-unit-number",
-				type: "number",
-				placeholder: "شماره صنفی",
+				name: "card_meli_aks",
+				type: "file",
+				placeholder: "عکس کارت ملی",
+				iconOnRight: preCodeIcon,
+			},
+			{
+				name: "code_posti",
+				placeholder: "کد پستی",
 				iconOnRight: preCodeIcon,
 			},
 		],
@@ -41,13 +68,18 @@ export const textFields = [
 		items: [
 			{
 				name: "registraion_number",
-				placeholder: "شماره ثبت",
+				placeholder: "شماره شناسنامه/شماره ثبت",
 				iconOnRight: landlineIcon,
 			},
 			{
 				name: "image_path",
 				type: "file",
 				placeholder: "لوگو فروشگاه",
+				iconOnRight: preCodeIcon,
+			},
+			{
+				name: "shaba_banki",
+				placeholder: "شماره شبای بانکی",
 				iconOnRight: preCodeIcon,
 			},
 		],

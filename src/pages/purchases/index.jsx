@@ -4,21 +4,21 @@ import { buttonStyles, itemsContainerStyles } from "./purchasesStyles";
 import RenderedItems from "./RenderedItems";
 
 function Purchases() {
-  const renderedPurchasesContainer = (items) =>
-    items.map(({ items, id }) => {
-      return (
-        <Grid container flexWrap="nowrap" sx={itemsContainerStyles} key={id}>
-          <RenderedItems key={id} items={items} />
-        </Grid>
-      );
-    });
+	const renderedPurchasesContainer = items =>
+		items?.map(({ items, id }) => {
+			return (
+				<Grid container flexWrap="nowrap" sx={itemsContainerStyles} key={id}>
+					<RenderedItems key={id} items={items} />
+				</Grid>
+			);
+		});
 
-  return (
-    <>
-      {renderedPurchasesContainer(purchasesItems)}
-      <Button sx={buttonStyles}>فروشگاه</Button>
-    </>
-  );
+	return (
+		<>
+			{renderedPurchasesContainer(purchasesItems)}
+			<Button sx={buttonStyles}>فروشگاه</Button>
+		</>
+	);
 }
 
 export default Purchases;

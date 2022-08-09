@@ -9,3 +9,4 @@ export { default as SupportTextFields } from "./support-text-fields";
 export { default as FAQHeader } from "./FAQ-header";
 export { default as FAQItems } from "./FAQ-Items";
 export { default as MainAbout } from "./main-about";
+export { default as RenderIfLoggedIn } from "./render-if-logged-in";

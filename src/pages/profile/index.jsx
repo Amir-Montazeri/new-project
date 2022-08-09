@@ -1,25 +1,19 @@
 import { Box } from "@mui/material";
-import { connect } from "react-redux";
-import { Navigate, Outlet } from "react-router-dom";
+import { RenderIfLoggedIn } from "components";
+import { Outlet } from "react-router-dom";
 import { containerStyles, contentStyles } from "./profileStyles";
 
-function Profile({ user }) {
-  // return user ? (
-  return (
-    <Box sx={containerStyles}>
-      {/* header */}
-      <Box sx={contentStyles}>
-        <Outlet />
-      </Box>
-    </Box>
-  );
-  // : (
-  //   <Navigate to="/login" />
-  // );
+function Profile() {
+	return (
+		<RenderIfLoggedIn mustLoggedIn={true}>
+			<Box sx={containerStyles}>
+				{/* header */}
+				<Box sx={contentStyles}>
+					<Outlet />
+				</Box>
+			</Box>
+		</RenderIfLoggedIn>
+	);
 }
 
-const mapStateToProps = (state) => ({
-  user: state.user,
-});
-
-export default connect(mapStateToProps)(Profile);
+export default Profile;

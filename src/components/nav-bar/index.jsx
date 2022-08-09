@@ -1,29 +1,46 @@
 import { Box } from "@mui/material";
-import { Link } from "react-router-dom";
-import { activeNavStyles, containerStyles, itemStyles } from "./navbarStyles";
+import { connect } from "react-redux";
+import { activeNavStyles, containerStyles } from "./navbarStyles";
 import { navItems } from "./navItems";
+import RenderedNavItem from "./RenderedNavItem";
 
-function NavBar({ isActive, setIsActive }) {
-  const activeStyle = isActive ? activeNavStyles : {};
+function NavBar({ isActive, setIsActive, user }) {
+	const activeStyle = isActive ? activeNavStyles : {};
 
-  const renderedNavItem = (items) =>
-    items.map((item) => (
-      <Link
-        key={item.title}
-        to={item.linkTo}
-        onClick={() => setIsActive(false)}
-      >
-        <Box component="li" sx={itemStyles}>
-          {item.title}
-        </Box>
-      </Link>
-    ));
-
-  return (
-    <Box sx={{ ...containerStyles, ...activeStyle }} component="ul">
-      {renderedNavItem(navItems)}
-    </Box>
-  );
+	return (
+		<Box sx={{ ...containerStyles, ...activeStyle }} component="ul">
+			{/* {renderedNavItem(navItems)} */}
+			{navItems.map(item =>
+				item.renderIfLoggedIn === true ? (
+					user ? (
+						<RenderedNavItem
+							key={item.title}
+							item={item}
+							setIsActive={setIsActive}
+						/>
+					) : null
+				) : item.renderIfLoggedIn === false ? (
+					user ? null : (
+						<RenderedNavItem
+							key={item.title}
+							item={item}
+							setIsActive={setIsActive}
+						/>
+					)
+				) : (
+					<RenderedNavItem
+						key={item.title}
+						item={item}
+						setIsActive={setIsActive}
+					/>
+				)
+			)}
+		</Box>
+	);
 }
 
-export default NavBar;
+const mapStateToProps = state => ({
+	user: state.user,
+});
+
+export default connect(mapStateToProps)(NavBar);

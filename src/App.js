@@ -1,15 +1,15 @@
 import { Routes, Route } from "react-router-dom";
 import {
-  AboutUs,
-  Main,
-  ContactUs,
-  DownloadApp,
-  Profile,
-  Purchases,
-  Financial,
-  Support,
-  FAQ,
-  Tickets,
+	AboutUs,
+	Main,
+	ContactUs,
+	DownloadApp,
+	Profile,
+	Purchases,
+	Financial,
+	Support,
+	FAQ,
+	Tickets,
 } from "pages";
 import Login from "../src/pages/login/loginForm";
 import Register from "../src/pages/register/registerForm";
@@ -22,75 +22,120 @@ import Footer from "components/footer/footer.component";
 import Menu from "components/menu/menu.component";
 import ProfileForm from "components/profile-form";
 import { GlobalStyles } from "@mui/material";
-import { Ads } from "components";
+import { Ads, RenderIfLoggedIn } from "components";
 import { connect } from "react-redux";
-import { setIsLoading, fetchAdBanners } from "store/actions";
+import { setIsLoading, fetchAdBanners, setUser } from "store/actions";
 import BusinessForm from "components/business-form";
 import { useEffect } from "react";
 
-import Product from "pages/product";
+import axios from "axios";
+import { base_api_url } from "api";
+import { getItem, deleteItem } from "lcoalStorage";
+import ProductComponent from "components/ProductComponent";
 
 // function App({ user, setIsLoading, isLoading }) {
-function App({ fetchAdBanners }) {
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   const timerID = setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 10000);
-  //   clearTimeout(timerID);
-  // }, []);
+function App({ setUser, fetchAdBanners }) {
+	useEffect(() => {
+		const accessToken = getItem("access");
 
-  useEffect(() => {
-    fetchAdBanners();
-  });
+		axios
+			.get(`${base_api_url}/auth/info/`, {
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			})
+			.then(res => {
+				if (res.statusText === "OK") {
+					setUser(res.data);
+				}
+			})
+			.catch(err => {
+				const { response } = err;
+				// console.log("not succc::::::::::::", response);
+				if (response.data.code === "token_not_valid") {
+					deleteItem("access");
+					deleteItem("refresh");
+				}
+			});
+	}, []);
 
-  return (
-    <>
-      <Ads />
-      <Menu />
-      <GlobalStyles
-        styles={{
-          a: { color: "#000", ":hover": { color: "#111" } },
-          "*": {
-            fontFamily: "Bahij !important",
-          },
-        }}
-      />
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/contact" element={<ContactUs />} />
-        <Route path="/download" element={<DownloadApp />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        {/* <Route path="/admin" element={<AdminTemplate />}> */}
-        <Route path="products" element={<ListProduct />} />
-        <Route path="product/:id" element={<Product />} />
-        <Route path="product/create" element={<CreateProduct />} />
-        <Route path="/profile" element={<Profile />}>
-          <Route path="me" element={<ProfileForm />} />
-          <Route path="business" element={<BusinessForm />} />
+	// useEffect(() => {
+	//   setIsLoading(true);
+	//   const timerID = setTimeout(() => {
+	//     setIsLoading(false);
+	//   }, 10000);
+	//   clearTimeout(timerID);
+	// }, []);
 
-          {/* mahsolate kharidari shode */}
-          <Route path="purchases" element={<Purchases />} />
+	useEffect(() => {
+		fetchAdBanners();
+	});
 
-          {/* sefareshate moshtaria */}
-          <Route path="financial" element={<Financial />} />
-        </Route>
-        <Route path="support" element={<Support />} />
-        <Route path="tickets" element={<Tickets />} />
-        <Route path="/FAQ" element={<FAQ />} />
-        <Route path="*" element={<div>Not Found</div>} />
-        {/* </Route> */}
-      </Routes>
-      <Footer />
-    </>
-  );
+	return (
+		<>
+			<Ads />
+			<Menu />
+			<GlobalStyles
+				styles={{
+					a: { color: "#000", ":hover": { color: "#111" } },
+					"*": {
+						fontFamily: "Bahij !important",
+					},
+				}}
+			/>
+			<Routes>
+				<Route path="/" element={<Main />} />
+				<Route path="/about" element={<AboutUs />} />
+				<Route path="/contact" element={<ContactUs />} />
+				<Route path="/download" element={<DownloadApp />} />
+				<Route
+					path="/login"
+					element={
+						<RenderIfLoggedIn mustLoggedIn={false}>
+							<Login />
+						</RenderIfLoggedIn>
+					}
+				/>
+				<Route
+					path="/register"
+					element={
+						<RenderIfLoggedIn mustLoggedIn={false}>
+							<Register />
+						</RenderIfLoggedIn>
+					}
+				/>
+				{/* <Route path="/admin" element={<AdminTemplate />}> */}
+				<Route path="products" element={<ListProduct />} />
+				<Route path="product/:id" element={<ProductComponent />} />
+				<Route path="product/create" element={<CreateProduct />} />
+				<Route path="/profile" element={<Profile />}>
+					<Route path="me" element={<ProfileForm />} />
+					<Route path="business" element={<BusinessForm />} />
+
+					{/* mahsolate kharidari shode */}
+					<Route path="purchases" element={<Purchases />} />
+
+					{/* sefareshate moshtaria */}
+					<Route path="financial" element={<Financial />} />
+				</Route>
+				<Route path="support" element={<Support />} />
+				<Route path="tickets" element={<Tickets />} />
+				<Route path="/FAQ" element={<FAQ />} />
+				<Route path="*" element={<div>Not Found</div>} />
+				{/* </Route> */}
+			</Routes>
+			<Footer />
+		</>
+	);
 }
 
-const mapStateToProps = (state) => ({
-  user: state.user,
-  isLoading: state.isLoading,
+const mapStateToProps = state => ({
+	user: state.user,
+	isLoading: state.isLoading,
 });
 
-export default connect(mapStateToProps, { setIsLoading, fetchAdBanners })(App);
+export default connect(mapStateToProps, {
+	setIsLoading,
+	fetchAdBanners,
+	setUser,
+})(App);
