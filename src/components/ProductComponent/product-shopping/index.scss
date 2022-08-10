@@ -1,0 +1,15 @@
+.product-shopping-container {
+  padding: 20px;
+  width: 400px;
+  background-color: #fff;
+  direction: rtl;
+
+  .product-shopping-card {
+    display: flex;
+    justify-content: space-between;
+
+    .product-shopping-card-information {
+      display: flex;
+    }
+  }
+}

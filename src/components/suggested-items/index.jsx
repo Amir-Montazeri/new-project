@@ -70,7 +70,7 @@ const SuggestedItems = ({ mainPage, fetchMainPage }) => {
         <Link to={`/product/${item.id}`} style={{ height: "100%" }}>
           <ItemDramatic
             title={item.name}
-            // title={"مرغ"}
+            // title={"ممد شیره‌ای"}
             desc={
               item.for_us ? "موجود در انبار پلاست اب" : "موجود در انبار فروشنده"
             }
