@@ -39,3 +39,9 @@ export const commafy = (num) => {
   }
   return str.join(".");
 };
+
+export const preparedPrice = (priceInEnglish) => {
+  const priceInCommafy = commafy(priceInEnglish);
+  const commafyInPersian = toPersianNumber(priceInCommafy);
+  return commafyInPersian;
+};

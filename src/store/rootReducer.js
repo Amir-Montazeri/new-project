@@ -4,6 +4,7 @@ import user from "./user";
 import products from "./products";
 import adBanners from "./adBanners";
 import mainPage from "./mainPage";
+import myProducts from "./myProducts";
 
 export default combineReducers({
   isLoading,
@@ -11,4 +12,5 @@ export default combineReducers({
   adBanners,
   mainPage,
   user,
+  myProducts,
 });

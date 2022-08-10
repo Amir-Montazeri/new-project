@@ -1,16 +1,19 @@
-import { base_api_url } from "api";
 import axios from "axios";
-import { deleteItem } from "lcoalStorage";
+import { base_api_url } from "api";
+import { deleteItem, getItem } from "lcoalStorage";
 import {
   DELETE_PRODUCT_LIST,
   FETCH_ADBANNERS,
   FETCH_MAINPAGE,
+  FETCH_MY_PRODUCTS,
   IS_LOADING,
   LOG_OUT,
   SET_PRODUCTS,
   SET_USER_OK,
   USER,
 } from "./actionTypes";
+
+const accessToken = getItem("access");
 
 export const setIsLoading = (payload) => ({
   type: IS_LOADING,
@@ -68,6 +71,19 @@ export const fetchMainPage = () => async (dispatch) => {
 
   dispatch({
     type: FETCH_MAINPAGE,
+    payload: data,
+  });
+};
+
+export const fetchMyProducts = () => async (dispatch) => {
+  const { data } = await axios.get(`${base_api_url}/Product/?me=1`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  dispatch({
+    type: FETCH_MY_PRODUCTS,
     payload: data,
   });
 };
