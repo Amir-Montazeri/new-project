@@ -1,6 +1,6 @@
 export const containerStyles = {
     margin: "10px auto",
-    width: "85%",
+    width: "95%",
   },
   itemsStyles = {
     width: "50%",

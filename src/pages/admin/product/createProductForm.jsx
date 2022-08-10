@@ -12,6 +12,7 @@ import setting from "../../../global/setting.js";
 import { base_api_url } from "api";
 import axios from "axios";
 import { getItem } from "lcoalStorage";
+import { useNavigate } from "react-router-dom";
 
 const SaleRangeConponent = (props) => {
   const { ranges } = props;
@@ -193,7 +194,7 @@ export default class CreateProductForm extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`${setting.baseUrl}ProductCatagory/`, {
+    fetch(`${base_api_url}/Catagory/`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
@@ -202,7 +203,9 @@ export default class CreateProductForm extends React.Component {
       })
       .then((data) => {
         this.setState({
-          categories: data.results,
+          categories: data.category.filter(
+            (category) => category.parrent_category !== null
+          ),
         });
       });
 
@@ -230,7 +233,6 @@ export default class CreateProductForm extends React.Component {
   handleFormSubmit = (e) => {
     e.preventDefault();
     console.clear();
-    console.log("starting...");
     let formData = new FormData();
     formData.append("name", String(this.state.name));
     formData.append("product_type", String(this.state.product_type));
@@ -263,11 +265,18 @@ export default class CreateProductForm extends React.Component {
 
     const accessToken = getItem("access");
 
-    axios.post(`${base_api_url}/Product/`, formData, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+    axios
+      .post(`${base_api_url}/Product/`, formData, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.status);
+        if (res.status === 201) {
+          this.props.navigate("/my-products");
+        }
+      });
 
     // fetch(`${base_api_url}/Product/`, {
     //   method: "POST",
