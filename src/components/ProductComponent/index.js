@@ -5,17 +5,11 @@ import { useParams } from "react-router-dom";
 import AboutProduct from "./about-product";
 import BuyProduct from "./buy-product";
 import Comments from "./comments";
-import Delivery from "./Delivery";
-import DetailsProducts from "./DetailsProduct";
-import ImageComponent from "./ImageComponent";
 import "./index.css";
 import OtherStoreProducts from "./other-store-products";
-import Price from "./Price";
 import ProductBanner from "./product-banners";
 import ProductFeatures from "./product-features";
 import ProductShopping from "./product-shopping";
-import SellerDetail from "./SellerDetail";
-import Storage from "./Storage";
 
 const ProductComponent = () => {
   const { id } = useParams();
@@ -59,6 +53,7 @@ const ProductComponent = () => {
           <Comments
             isOpen={commentIsOpen}
             setIsOpen={() => setCommentIsOpen(false)}
+            id={itemData.id}
             comments={itemData.comment}
           />
           <BuyProduct productPrice={itemData.price} productID={itemData.id} />
@@ -69,10 +64,12 @@ const ProductComponent = () => {
             productbanners={imageList}
           />
           <ProductFeatures />
-          <AboutProduct />
+          <AboutProduct productDetails={itemData.detail} />
         </div>
       </div>
-      <OtherStoreProducts otherProducts={itemData.others} />
+      <div style={{ margin: "20px 0" }}>
+        <OtherStoreProducts otherProducts={itemData.others} />
+      </div>
     </div>
   ) : null;
 };

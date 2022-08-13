@@ -24,11 +24,13 @@ function ProductBanner({ productName = "", productbanners = [] }) {
         <div className="product-banner-description"></div>
       </div>
       <div className="product-banner-banners">
-        <img
-          src={selectedBanner || ""}
-          alt="product-banner"
-          className="product-banner-banner"
-        />
+        <div style={{ height: "310px", overflow: "hidden" }}>
+          <img
+            src={selectedBanner || ""}
+            alt="product-banner"
+            className="product-banner-banner"
+          />
+        </div>
         <div className="product-banner-banners-list">
           {renderedBanners(productbanners)}
         </div>

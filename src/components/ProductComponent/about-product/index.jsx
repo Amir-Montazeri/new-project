@@ -1,11 +1,11 @@
 // import "./index.scss";
 import DescriptionLayout from "../descriptions-layout";
 
-function AboutProduct() {
+function AboutProduct({ productDetails = "" }) {
   return (
     <div>
       <DescriptionLayout title="درباره محصول">
-        یسری اطلاعاتم داره
+        <p style={{ direction: "rtl" }}>{productDetails}</p>
       </DescriptionLayout>
     </div>
   );
