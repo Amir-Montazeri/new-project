@@ -23,7 +23,6 @@ const config = {
   };
 
 const FirstSallingItems = ({ items }) => {
-  console.log("items::: ", { items });
   const renderedItems = (items) =>
     items?.map((item) => {
       return (

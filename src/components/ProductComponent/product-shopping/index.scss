@@ -3,6 +3,10 @@
   width: 400px;
   background-color: #fff;
   direction: rtl;
+  @media screen and (max-width: 1120px) {
+    width: 600px;
+    max-width: 90vw;
+  }
 
   .product-shopping-card {
     display: flex;

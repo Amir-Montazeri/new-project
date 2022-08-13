@@ -1,5 +1,5 @@
-import { Avatar, Button } from "@mui/material";
 import "./index.scss";
+import { Avatar, Button } from "@mui/material";
 
 function ProductShopping({
   ownerName,

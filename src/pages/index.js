@@ -9,3 +9,4 @@ export { default as Support } from "./support";
 export { default as FAQ } from "./FAQ";
 export { default as Tickets } from "./tickets";
 export { default as MyProducts } from "./my-products";
+export { default as BuyProduct } from "./buy-product";

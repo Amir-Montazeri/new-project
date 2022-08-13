@@ -1,4 +1,4 @@
-import { useState, createRef } from "react";
+import { createRef } from "react";
 import { Grid, Typography } from "@mui/material";
 import DefaultImg from "./DefaultImg";
 import {
@@ -21,12 +21,9 @@ function SupportUploadImg({ ticketImage, setTicketImage }) {
   return (
     <Grid item sx={containerStyles} onClick={() => inputRef.current.click()}>
       {/* {ticketImage ? (
-        <img
-          src={ticketImage?.file ?? ticketImage.file}
-          alt="your uploaded file"
-          height="80%"
-        />
+        <DefaultImg imgUrl={ticketImage} />
       ) : (
+        // <div>gii</div>
         <DefaultImg />
       )} */}
       <DefaultImg />

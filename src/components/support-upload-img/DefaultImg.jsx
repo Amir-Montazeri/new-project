@@ -2,7 +2,7 @@ import { Grid } from "@mui/material";
 import defaultImg from "assets/icons-dir/defaultImg.svg";
 import { containerStyles } from "./defaultImgStyles";
 
-function DefaultImg() {
+function DefaultImg({ imgUrl }) {
   return (
     <Grid
       container
@@ -11,7 +11,7 @@ function DefaultImg() {
       sx={containerStyles}
     >
       <Grid item>
-        <img src={defaultImg} alt="default" />
+        <img src={imgUrl || defaultImg} alt="default" />
       </Grid>
     </Grid>
   );

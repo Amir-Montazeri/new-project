@@ -11,6 +11,7 @@ import {
   FAQ,
   Tickets,
   MyProducts,
+  BuyProduct,
 } from "pages";
 import Login from "../src/pages/login/loginForm";
 import Register from "../src/pages/register/registerForm";
@@ -126,6 +127,7 @@ function App({ setUser, fetchAdBanners }) {
         <Route path="products" element={<ListProduct />} />
         <Route path="product/create" element={<CreateProduct />} />
         <Route path="product/:id" element={<ProductComponent />} />
+        <Route path="product/:id/buy" element={<BuyProduct />} />
         <Route path="/profile" element={<Profile />}>
           <Route path="me" element={<ProfileForm />} />
           <Route path="business" element={<BusinessForm />} />

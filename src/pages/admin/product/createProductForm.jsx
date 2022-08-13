@@ -448,7 +448,7 @@ export default class CreateProductForm extends React.Component {
                               });
                             }}
                           />
-                          <img src={item.file} />
+                          <img src={item.file} height="220px" />
                         </div>
                       </Col>
                     );
